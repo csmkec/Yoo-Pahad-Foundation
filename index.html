@@ -709,6 +709,202 @@
             transform: translateY(0);
         }
 
+        /* ==================== VIDEOS SECTION STYLES ==================== */
+        .videos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 3rem auto 0;
+        }
+
+        .video-card {
+            background: var(--white);
+            border: 1px solid #E5E7EB;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            cursor: pointer;
+            box-shadow: 0 4px 16px rgba(15, 31, 63, 0.06);
+        }
+
+        .video-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--teal);
+            box-shadow: 0 16px 40px rgba(0, 217, 255, 0.1);
+        }
+
+        .video-thumbnail {
+            position: relative;
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+            background: #000;
+        }
+
+        .video-thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .video-card:hover .video-thumbnail img {
+            transform: scale(1.05);
+        }
+
+        .play-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60px;
+            height: 60px;
+            background: var(--teal);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: var(--navy-dark);
+            font-weight: 900;
+            opacity: 0.8;
+            transition: all 0.3s ease;
+            z-index: 2;
+        }
+
+        .video-card:hover .play-button {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1.15);
+        }
+
+        .video-duration {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            background: rgba(0, 0, 0, 0.8);
+            color: var(--white);
+            padding: 0.4rem 0.8rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            z-index: 1;
+        }
+
+        .video-info {
+            padding: 1.5rem;
+        }
+
+        .video-info h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.8rem;
+            color: var(--navy-dark);
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        .video-info p {
+            font-size: 0.95rem;
+            color: var(--text-gray);
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .video-tag {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--teal), var(--electric-teal));
+            color: var(--navy-dark);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Video Modal */
+        .video-modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            animation: fadeIn 0.3s ease;
+            overflow: auto;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .video-modal-content {
+            position: relative;
+            background: var(--navy-dark);
+            margin: auto;
+            padding: 2rem;
+            width: 90%;
+            max-width: 900px;
+            border-radius: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .video-modal-close {
+            position: absolute;
+            right: 1.5rem;
+            top: 1.5rem;
+            background: var(--teal);
+            border: none;
+            color: var(--navy-dark);
+            font-size: 1.8rem;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+            font-weight: bold;
+        }
+
+        .video-modal-close:hover {
+            transform: scale(1.1);
+        }
+
+        .video-embed-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 8px;
+        }
+
+        .video-embed-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .video-modal-title {
+            color: var(--white);
+            margin-top: 1.5rem;
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+
         /* Join Section */
         .join-section {
             background: linear-gradient(135deg, var(--navy) 0%, var(--navy-dark) 100%);
@@ -1049,6 +1245,14 @@
                 height: 50px;
                 font-size: 1.5rem;
             }
+
+            .video-modal-content {
+                padding: 1rem;
+            }
+
+            .videos-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         /* ==================== END CHATBOT STYLES ==================== */
@@ -1166,6 +1370,10 @@
                 grid-template-columns: 1fr;
             }
 
+            .videos-grid {
+                grid-template-columns: 1fr;
+            }
+
             .members-grid {
                 grid-template-columns: 1fr;
             }
@@ -1222,7 +1430,7 @@
 <body>
     <!-- Navigation -->
     <nav>
-        <div class="logo">YOOO PAHAD FOUNDATION</div>
+        <div class="logo">YOOO PAHAD</div>
         <div class="mobile-menu" onclick="toggleMenu()">
             <span></span>
             <span></span>
@@ -1233,6 +1441,7 @@
             <li><a href="#focus">Focus Areas</a></li>
             <li><a href="#achievements">Achievements</a></li>
             <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#videos">Videos</a></li>
             <li><a href="#join">Join Us</a></li>
         </ul>
     </nav>
@@ -1687,6 +1896,118 @@
         </div>
     </section>
 
+    <!-- Videos Section -->
+    <section class="section" id="videos">
+        <h2 class="section-title">Our Video Stories</h2>
+        <p class="section-subtitle">Watch our community impact in action - documentaries, testimonials, and behind-the-scenes moments</p>
+        
+        <div class="videos-grid">
+            <!-- Blood Donation Drive Documentary -->
+            <div class="video-card" onclick="openVideoModal('4kDWYYULMFc', 'Blood Donation Drive - Saving Lives')">
+                <div class="video-thumbnail">
+                    <img src="https://img.youtube.com/vi/4kDWYYULMFc/sddefault.jpg" alt="Blood Donation Drive">
+                    <div class="play-button">▶</div>
+                    <span class="video-duration">12:34</span>
+                </div>
+                <div class="video-info">
+                    <h3>Blood Donation Drive - Saving Lives</h3>
+                    <p>Watch our youth volunteers organize a successful blood donation campaign that helped over 100 people.</p>
+                    <span class="video-tag">Documentary</span>
+                </div>
+            </div>
+
+            <!-- Janmashtami Festival Celebration -->
+            <div class="video-card" onclick="openVideoModal('jN3rKDd8I0w', 'Janmashtami Mahotsav 2025')">
+                <div class="video-thumbnail">
+                    <img src="https://img.youtube.com/vi/jN3rKDd8I0w/sddefault.jpg" alt="Janmashtami Celebration">
+                    <div class="play-button">▶</div>
+                    <span class="video-duration">18:45</span>
+                </div>
+                <div class="video-info">
+                    <h3>Janmashtami Mahotsav 2025</h3>
+                    <p>Experience the joy and devotion of our annual Janmashtami celebration with music, dance, and community gathering.</p>
+                    <span class="video-tag">Festival</span>
+                </div>
+            </div>
+
+            <!-- Community Stories - Elderly Care -->
+            <div class="video-card" onclick="openVideoModal('dQw4w9WgXcQ', 'Elderly Care Program - Life Stories')">
+                <div class="video-thumbnail">
+                    <img src="https://img.youtube.com/vi/dQw4w9WgXcQ/sddefault.jpg" alt="Elderly Care">
+                    <div class="play-button">▶</div>
+                    <span class="video-duration">14:20</span>
+                </div>
+                <div class="video-info">
+                    <h3>Elderly Care Program - Life Stories</h3>
+                    <p>Hear touching stories from our elderly community members about dignity, companionship, and cultural wisdom.</p>
+                    <span class="video-tag">Impact Story</span>
+                </div>
+            </div>
+
+            <!-- Environmental Initiative - Tree Plantation -->
+            <div class="video-card" onclick="openVideoModal('v7ScGV5128A', 'Green Mountains - Tree Plantation Drive')">
+                <div class="video-thumbnail">
+                    <img src="https://img.youtube.com/vi/v7ScGV5128A/sddefault.jpg" alt="Tree Plantation">
+                    <div class="play-button">▶</div>
+                    <span class="video-duration">9:15</span>
+                </div>
+                <div class="video-info">
+                    <h3>Green Mountains - Tree Plantation Drive</h3>
+                    <p>Join us as we plant over 500 trees to restore our Himalayan ecosystem and create a sustainable future.</p>
+                    <span class="video-tag">Environment</span>
+                </div>
+            </div>
+
+            <!-- Education Initiative -->
+            <div class="video-card" onclick="openVideoModal('tYzMGcUty6s', 'Education Empowerment Program')">
+                <div class="video-thumbnail">
+                    <img src="https://img.youtube.com/vi/tYzMGcUty6s/sddefault.jpg" alt="Education">
+                    <div class="play-button">▶</div>
+                    <span class="video-duration">11:30</span>
+                </div>
+                <div class="video-info">
+                    <h3>Education Empowerment Program</h3>
+                    <p>Meet students whose lives changed through our education initiatives, scholarships, and learning centers.</p>
+                    <span class="video-tag">Education</span>
+                </div>
+            </div>
+
+            <!-- Founder's Message -->
+            <div class="video-card" onclick="openVideoModal('9bZkp7q19f0', 'Founder\'s Vision - Empowering Hills')">
+                <div class="video-thumbnail">
+                    <img src="https://img.youtube.com/vi/9bZkp7q19f0/sddefault.jpg" alt="Founder Message">
+                    <div class="play-button">▶</div>
+                    <span class="video-duration">6:45</span>
+                </div>
+                <div class="video-info">
+                    <h3>Founder's Vision - Empowering Hills</h3>
+                    <p>Hear directly from our founder about the mission, journey, and future goals of Yooo Pahad Foundation.</p>
+                    <span class="video-tag">Testimonial</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Modal -->
+    <div id="videoModal" class="video-modal" onclick="closeVideoModal()">
+        <div class="video-modal-content" onclick="event.stopPropagation()">
+            <button class="video-modal-close" onclick="closeVideoModal()">✕</button>
+            <div class="video-embed-container">
+                <iframe 
+                    id="videoFrame" 
+                    width="100%" 
+                    height="100%" 
+                    src="" 
+                    title="YouTube video player" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
+            </div>
+            <div id="videoModalTitle" class="video-modal-title"></div>
+        </div>
+    </div>
+
     <!-- Join Section -->
     <section class="join-section" id="join">
         <div class="join-content">
@@ -1717,6 +2038,7 @@
                 <a href="#focus">Focus Areas</a>
                 <a href="#achievements">Our Achievements</a>
                 <a href="#gallery">Gallery</a>
+                <a href="#videos">Videos</a>
                 <a href="#join">Join Us</a>
             </div>
 
@@ -1826,14 +2148,42 @@
         }, observerOptions);
 
         // Observe elements for animation
-        document.querySelectorAll('.focus-card, .timeline-item, .gallery-item, .member-card').forEach(el => {
+        document.querySelectorAll('.focus-card, .timeline-item, .gallery-item, .member-card, .video-card').forEach(el => {
             el.style.opacity = '0';
             el.style.transform = 'translateY(20px)';
             el.style.transition = 'all 0.6s ease-out';
             observer.observe(el);
         });
 
-        // ==================== CHATBOT FUNCTIONALITY ==================== 
+        // ==================== VIDEO MODAL FUNCTIONALITY ====================
+        function openVideoModal(videoId, title) {
+            const modal = document.getElementById('videoModal');
+            const frame = document.getElementById('videoFrame');
+            const titleEl = document.getElementById('videoModalTitle');
+            
+            frame.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+            titleEl.textContent = title;
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeVideoModal() {
+            const modal = document.getElementById('videoModal');
+            const frame = document.getElementById('videoFrame');
+            
+            frame.src = '';
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when pressing Escape
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeVideoModal();
+            }
+        });
+
+        // ==================== CHATBOT FUNCTIONALITY ====================
 
         const sampleResponses = {
             greeting: "Hello! Welcome to Yooo Pahad Foundation. How can I help you today?",
