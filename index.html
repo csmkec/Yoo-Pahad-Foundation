@@ -120,6 +120,17 @@
             border-radius: 2px;
             transition: all 0.3s;
         }
+        
+        /* New Nav Donate Button style */
+        .nav-donate-btn {
+            padding: 0.6rem 1.5rem;
+            font-size: 0.85rem;
+            box-shadow: none;
+            margin-left: 2rem;
+            letter-spacing: 1px;
+        }
+        .donate-nav-link { display: none; /* Hide the link in desktop menu */ }
+
 
         /* HERO SECTION - MINIMALIST */
         .hero {
@@ -492,6 +503,7 @@
             position: absolute;
             top: -20px;
             left: -10px;
+            
             opacity: 0.2;
         }
 
@@ -502,7 +514,8 @@
             font-size: 1.2rem;
             font-style: normal;
             font-weight: 700;
-            text-transform: uppercase;
+   
+             text-transform: uppercase;
             letter-spacing: 1px;
         }
 
@@ -511,7 +524,8 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
-            max-width: 1400px;
+       
+             max-width: 1400px;
             margin: 0 auto;
         }
 
@@ -520,7 +534,8 @@
             border: 1px solid #E5E7EB;
             border-radius: 12px;
             padding: 2.5rem;
-            transition: all 0.4s ease;
+         
+             transition: all 0.4s ease;
             position: relative;
             box-shadow: 0 4px 16px rgba(15, 31, 63, 0.06);
             overflow: hidden;
@@ -949,42 +964,48 @@
         /* Footer */
         footer {
             background: var(--navy-dark);
-            color: var(--white);
-            padding: 5rem 5% 2rem;
+            color: var(--off-white);
+            padding: 4rem 5% 2rem;
+            border-top: 5px solid var(--navy);
+            margin-top: 5rem;
         }
 
         .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 4rem;
-            margin-bottom: 3rem;
+            gap: 3rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding-bottom: 3rem;
         }
 
         .footer-section h3 {
             color: var(--teal);
+            font-size: 1.3rem;
             margin-bottom: 1.5rem;
-            font-size: 1.1rem;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
 
-        .footer-section p,
+        .footer-section p {
+            font-size: 0.95rem;
+            color: #B0C4DE;
+            line-height: 1.8;
+        }
+
         .footer-section a {
+            display: block;
             color: #B0C4DE;
             text-decoration: none;
-            display: block;
             margin-bottom: 0.8rem;
-            transition: all 0.3s;
-            line-height: 1.8;
-            font-weight: 400;
+            transition: color 0.3s;
+            font-size: 0.95rem;
         }
 
         .footer-section a:hover {
             color: var(--teal);
-            padding-left: 8px;
+            transform: translateX(5px);
         }
 
         .social-links {
@@ -993,50 +1014,28 @@
             margin-top: 1.5rem;
         }
 
-        .social-links a {
-            width: 48px;
-            height: 48px;
-            background: rgba(0, 217, 255, 0.08);
-            border: 1.5px solid var(--teal);
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.3rem;
-            transition: all 0.3s;
+        .social-link {
+            font-size: 1.5rem;
+            color: var(--teal);
+            transition: transform 0.3s;
         }
 
-        .social-links a:hover {
-            background: var(--teal);
-            transform: translateY(-6px);
+        .social-link:hover {
+            transform: scale(1.2);
+            color: var(--electric-teal);
         }
 
         .footer-bottom {
+            max-width: 1400px;
+            margin: 0 auto;
             text-align: center;
             padding-top: 2rem;
-            border-top: 1px solid rgba(0, 217, 255, 0.2);
-            color: #B0C4DE;
-            font-weight: 400;
+            border-top: 1px solid var(--navy);
+            font-size: 0.85rem;
+            color: #6B7280;
         }
 
-        .footer-tagline {
-            color: var(--teal);
-            font-size: 1.2rem;
-            margin-top: 1rem;
-            font-weight: 700;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
-
-        /* Decorative Elements */
-        .mountain-divider {
-            width: 100%;
-            height: 100px;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"><path fill="%231A3A52" opacity="0.3" d="M0 120L50 100Q100 80 150 90T250 110L300 120H0Z"/><path fill="%2300D9FF" opacity="0.5" d="M300 120L350 100Q400 80 450 90T550 110L600 120H300Z"/><path fill="%230F1F3F" d="M600 120L650 100Q700 80 750 90T850 110L900 120H600Z"/></svg>') repeat-x bottom;
-            background-size: 600px 100px;
-        }
-
-        /* ==================== AI CHATBOT STYLES ==================== */
+        /* ==================== CHATBOT STYLES ==================== */
         .chatbot-widget {
             position: fixed;
             bottom: 2rem;
@@ -1097,124 +1096,92 @@
             background: linear-gradient(135deg, var(--navy) 0%, var(--navy-dark) 100%);
             color: var(--white);
             padding: 1.5rem;
-            border-radius: 16px 16px 0 0;
-            border-bottom: 2px solid var(--teal);
+            border-top-left-radius: 16px;
+            border-top-right-radius: 16px;
+            text-align: center;
         }
 
-        .chatbot-header h3 {
+        .chatbot-header h4 {
             font-size: 1.2rem;
-            margin-bottom: 0.25rem;
+            margin-bottom: 0.3rem;
+            color: var(--teal);
             font-weight: 700;
         }
 
         .chatbot-header p {
             font-size: 0.85rem;
             color: #B0C4DE;
-            font-weight: 400;
         }
 
         .chatbot-messages {
-            flex: 1;
-            overflow-y: auto;
+            flex-grow: 1;
             padding: 1.5rem;
+            overflow-y: auto;
             background: var(--off-white);
         }
 
-        .chatbot-messages::-webkit-scrollbar {
-            width: 6px;
-        }
-
-        .chatbot-messages::-webkit-scrollbar-track {
-            background: transparent;
-        }
-
-        .chatbot-messages::-webkit-scrollbar-thumb {
-            background: var(--teal);
-            border-radius: 3px;
-        }
-
-        .message {
-            margin-bottom: 1rem;
+        .chatbot-message {
             display: flex;
-            animation: slideIn 0.3s ease-out;
-        }
-
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateY(10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .message.user {
-            justify-content: flex-end;
-        }
-
-        .message.bot {
-            justify-content: flex-start;
+            margin-bottom: 1rem;
+            align-items: flex-end;
         }
 
         .message-text {
-            max-width: 70%;
             padding: 0.8rem 1rem;
             border-radius: 12px;
+            max-width: 75%;
             font-size: 0.95rem;
-            line-height: 1.5;
+            line-height: 1.4;
         }
 
-        .message.user .message-text {
+        .user .message-text {
             background: var(--teal);
             color: var(--navy-dark);
-            font-weight: 500;
+            margin-left: auto;
+            border-bottom-right-radius: 2px;
+            box-shadow: 0 2px 10px rgba(0, 217, 255, 0.15);
         }
 
-        .message.bot .message-text {
-            background: white;
+        .bot .message-text {
+            background: var(--white);
             color: var(--text-dark);
-            border: 1px solid #E5E7EB;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            margin-right: auto;
+            border-bottom-left-radius: 2px;
+            box-shadow: 0 2px 10px rgba(15, 31, 63, 0.08);
         }
 
         .chatbot-input-area {
             display: flex;
-            gap: 0.8rem;
-            padding: 1.2rem;
-            background: var(--white);
+            padding: 1rem;
             border-top: 1px solid #E5E7EB;
-            border-radius: 0 0 16px 16px;
+            background: var(--white);
+            border-bottom-left-radius: 16px;
+            border-bottom-right-radius: 16px;
         }
 
         .chatbot-input {
-            flex: 1;
-            border: 1px solid #E5E7EB;
-            border-radius: 8px;
-            padding: 0.8rem 1rem;
-            font-size: 0.95rem;
-            font-family: 'Inter', sans-serif;
-            transition: all 0.2s;
+            flex-grow: 1;
+            padding: 0.6rem 1rem;
+            border: 1px solid #D1D5DB;
+            border-radius: 20px;
+            margin-right: 0.8rem;
+            font-size: 1rem;
         }
 
         .chatbot-input:focus {
-            outline: none;
             border-color: var(--teal);
-            box-shadow: 0 0 0 3px rgba(0, 217, 255, 0.1);
+            outline: none;
         }
 
         .chatbot-send-btn {
+            background: linear-gradient(135deg, var(--teal), var(--electric-teal));
+            border: none;
             width: 40px;
             height: 40px;
-            border: none;
-            background: linear-gradient(135deg, var(--teal), var(--electric-teal));
+            border-radius: 50%;
             color: var(--navy-dark);
-            border-radius: 8px;
             cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            box-shadow: 0 2px 8px rgba(0, 217, 255, 0.2);
             font-size: 1.2rem;
             transition: all 0.2s;
             font-weight: 600;
@@ -1229,213 +1196,210 @@
             transform: scale(0.95);
         }
 
+        /* ==================== DONATION MODAL STYLES ==================== */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed;
+            z-index: 3000; /* Higher than video modal (z-index: 2000) */
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background: rgba(15, 31, 63, 0.95); /* navy-dark with transparency */
+            backdrop-filter: blur(5px);
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .modal-content {
+            background: var(--white);
+            padding: 3rem;
+            border-radius: 16px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+            width: 90%;
+            max-width: 550px;
+            position: relative;
+            animation: slideIn 0.4s ease-out;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--off-white);
+            border: none;
+            color: var(--navy-dark);
+            font-size: 1.5rem;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+            font-weight: 300;
+        }
+
+        .modal-close:hover {
+            background: var(--teal);
+            color: var(--navy-dark);
+        }
+
+        .modal-content h2 {
+            color: var(--navy-dark);
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            font-weight: 900;
+            border-bottom: 2px solid var(--teal);
+            padding-bottom: 0.5rem;
+        }
+
+        .modal-content p {
+            color: var(--text-gray);
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.2rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--navy-dark);
+            font-size: 0.9rem;
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #D1D5DB;
+            border-radius: 8px;
+            font-size: 1rem;
+            color: var(--text-dark);
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus, .form-group select:focus {
+            border-color: var(--teal);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(0, 217, 255, 0.1);
+        }
+
+        #customAmountGroup {
+            display: none;
+            margin-top: 1rem;
+        }
+
+        .modal-content .btn {
+            width: 100%;
+            margin-top: 1.5rem;
+            padding: 1rem;
+        }
+
+        /* Thank You Modal Specific Styles */
+        #thankYouModal .modal-content {
+            text-align: center;
+            max-width: 450px;
+            background: var(--navy-dark);
+            color: var(--white);
+            padding: 4rem 3rem;
+        }
+
+        #thankYouModal h2 {
+            color: var(--teal);
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            border-bottom: none;
+        }
+
+        .thank-you-details {
+            margin-top: 2rem;
+            text-align: left;
+            background: var(--navy);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border-left: 5px solid var(--teal);
+        }
+
+        .thank-you-details div {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem 0;
+            border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+        }
+
+        .thank-you-details div:last-child {
+            border-bottom: none;
+        }
+
+        .thank-you-details strong {
+            color: var(--light-teal);
+            font-weight: 700;
+        }
+
+        .thank-you-details span {
+            color: var(--off-white);
+        }
+
+        .thank-you-message {
+            font-size: 1.05rem;
+            margin-top: 2rem;
+            color: #B0C4DE;
+        }
+
+
         /* Responsive */
-        @media (max-width: 480px) {
-            .chatbot-container {
-                width: 320px;
-                height: 500px;
-            }
-
-            .message-text {
-                max-width: 85%;
-            }
-
-            .chatbot-toggle {
-                width: 50px;
-                height: 50px;
-                font-size: 1.5rem;
-            }
-
-            .video-modal-content {
-                padding: 1rem;
-            }
-
-            .videos-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* ==================== END CHATBOT STYLES ==================== */
-
-        /* Responsive Design */
         @media (max-width: 968px) {
-            .hero-content h1 {
-                font-size: 3rem;
-            }
-
-            .section-title {
-                font-size: 2.3rem;
-            }
-
-            .focus-grid {
-                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            }
-
-            .timeline::before {
-                left: 20px;
-            }
-
-            .timeline-item {
-                padding-left: 4.5rem;
-            }
-
-            .members-grid {
-                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            }
+            .hero-content h1 { font-size: 3rem; }
+            .section-title { font-size: 2.3rem; }
+            .focus-grid { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+            .timeline::before { left: 20px; }
+            .timeline-item { padding-left: 4.5rem; }
+            .members-grid { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+            .nav-donate-btn { display: none; } /* Hide desktop button on mobile/tablet */
+            .donate-nav-link { display: block; } /* Show link in mobile menu */
         }
-
         @media (max-width: 768px) {
-            nav {
-                padding: 1rem 4%;
-            }
-
-            .logo {
-                font-size: 1.1rem;
-                letter-spacing: 1.5px;
-            }
-
-            .nav-links {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                background: var(--navy);
-                flex-direction: column;
-                gap: 0;
-                padding: 1rem 0;
-                box-shadow: 0 10px 30px rgba(15, 31, 63, 0.2);
-            }
-
-            .nav-links.active {
-                display: flex;
-            }
-
-            .nav-links li {
-                padding: 1rem 4%;
-                border-bottom: 1px solid rgba(0, 217, 255, 0.1);
-            }
-
-            .mobile-menu {
-                display: flex;
-            }
-
-            .hero-content h1 {
-                font-size: 2rem;
-            }
-
-            .hero-content p {
-                font-size: 1rem;
-            }
-
-            .hero-tagline {
-                font-size: 1.1rem;
-            }
-
-            .cta-buttons {
-                flex-direction: column;
-            }
-
-            .btn {
-                width: 100%;
-            }
-
-            .section {
-                padding: 4rem 4%;
-            }
-
-            .stats {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 2rem;
-                margin: 0 4%;
-            }
-
-            .stat-item h2 {
-                font-size: 2.8rem;
-            }
-
-            .about-text {
-                font-size: 0.98rem;
-            }
-
-            .mission-quote blockquote {
-                font-size: 1.4rem;
-            }
-
-            .focus-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .gallery-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .videos-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .members-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .footer-content {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .member-card {
-                height: 350px;
-            }
-
-            .join-section {
-                padding: 4rem 4%;
-                margin: 3rem 4% 0;
-            }
-
-            .chatbot-widget {
-                bottom: 1rem;
-                right: 1rem;
-            }
-
-            .chatbot-container {
-                width: 300px;
-                height: 450px;
-            }
+            nav { padding: 1rem 4%; }
+            .logo { font-size: 1.1rem; letter-spacing: 1.5px; }
+            .nav-links { display: none; position: absolute; top: 100%; left: 0; right: 0; background: var(--navy); flex-direction: column; gap: 0; padding: 1rem 0; box-shadow: 0 10px 30px rgba(15, 31, 63, 0.2); }
+            .nav-links.active { display: flex; }
+            .nav-links a { padding: 0.8rem 4%; text-align: center; }
+            .nav-links a::after { display: none; }
+            .mobile-menu { display: flex; }
+            .cta-buttons { flex-direction: column; gap: 1rem; }
+            .btn { width: 100%; }
+            .stats { grid-template-columns: 1fr 1fr; margin: 0 4%; }
+            .footer-content { grid-template-columns: 1fr; }
         }
-
         @media (max-width: 480px) {
-            .hero-content h1 {
-                font-size: 1.8rem;
-            }
-
-            .section-title {
-                font-size: 1.7rem;
-            }
-
-            .stats {
-                grid-template-columns: 1fr;
-            }
-
-            .member-card {
-                height: 300px;
-            }
-
-            .btn {
-                padding: 0.9rem 1.8rem;
-                font-size: 0.9rem;
+            .chatbot-container { width: 320px; height: 500px; }
+            .message-text { max-width: 85%; }
+            .chatbot-toggle { width: 50px; height: 50px; font-size: 1.5rem; }
+            .video-modal-content { padding: 1rem; }
+            .videos-grid { grid-template-columns: 1fr; }
+            .hero-content h1 { font-size: 2.5rem; }
+            .modal-content {
+                padding: 2rem 1.5rem;
+                margin: 10vh auto;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
     <nav>
-        <div class="logo">YOOO PAHAD FOUNDATION</div>
-        <div class="mobile-menu" onclick="toggleMenu()">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
+        <div class="logo">Yooo Pahad</div>
         <ul class="nav-links" id="navLinks">
             <li><a href="#about">About</a></li>
             <li><a href="#focus">Focus Areas</a></li>
@@ -1443,10 +1407,16 @@
             <li><a href="#gallery">Gallery</a></li>
             <li><a href="#videos">Videos</a></li>
             <li><a href="#join">Join Us</a></li>
+            <li class="donate-nav-link"><a href="#" onclick="openDonateModal(); return false;">Donate</a></li>
         </ul>
+        <button class="btn btn-primary nav-donate-btn" onclick="openDonateModal()">Donate</button>
+        <div class="mobile-menu" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
     </nav>
 
-    <!-- HERO SECTION - MODERN MINIMALIST -->
     <section class="hero">
         <div class="hero-content">
             <h1>Empowering Hills, Hearts, and Humanity</h1>
@@ -1454,13 +1424,12 @@
             <div class="hero-tagline">🏔️ Building Futures, One Smile at a Time 🏔️</div>
             <div class="cta-buttons">
                 <a href="#join" class="btn btn-primary">Join Our Movement</a>
-                <a href="#donate" class="btn btn-secondary">Donate Now</a>
+                <a href="#" class="btn btn-secondary" onclick="openDonateModal(); return false;">Donate Now</a>
                 <a href="#volunteer" class="btn btn-secondary">Volunteer</a>
             </div>
         </div>
     </section>
 
-    <!-- Stats Section -->
     <section class="stats">
         <div class="stat-item">
             <h2>2025</h2>
@@ -1480,27 +1449,23 @@
         </div>
     </section>
 
-    <!-- About Section -->
     <section class="section" id="about">
         <h2 class="section-title">Our Story</h2>
         <p class="section-subtitle">Born from dreams, powered by youth, driven by love</p>
-        
         <div class="about-content">
             <div class="about-text">
                 <p>Born from the dreams of Nainital's youth, <strong>Yooo Pahad Foundation</strong> is a vibrant movement transforming hillside communities through compassion and collaboration.</p>
-                
-                <p>Officially registered on <strong>September 9, 2025</strong>, our journey began with personal donations and heartfelt commitment. Today, we stand as a beacon of harmony and hope in the hills of Uttarakhand.</p>
-                
-                <p>We believe in blending <strong>fun with purpose</strong>, joy with impact. Every initiative we undertake is infused with the spirit of the mountains and the warmth of our people.</p>
+                <p>Officially registered on <strong>September 9, 2025</strong>, our journey began with personal donations and heartfelt commitment.
+                Today, we stand as a beacon of harmony and hope in the hills of Uttarakhand.</p>
+                <p>We believe in blending <strong>fun with purpose</strong>, joy with impact.
+                Every initiative we undertake is infused with the spirit of the mountains and the warmth of our people.</p>
             </div>
         </div>
     </section>
 
-    <!-- OUR TEAM Section -->
     <section class="section" id="team">
         <h2 class="section-title green-title">Our Team</h2>
         <p class="section-subtitle">Meet the passionate individuals driving change in the mountains</p>
-        
         <div class="members-grid">
             <div class="member-card">
                 <img src="./images/team-dr-santokh-singh-bisht.jpg" alt="Dr. Santokh Singh Bisht">
@@ -1509,47 +1474,34 @@
                     <div class="member-role">Founder</div>
                 </div>
             </div>
-
             <div class="member-card">
-                <img src="./images/team-sagar-sonker.jpg" alt="Sagar Sonker">
+                <img src="./images/team-sumit-goswami.jpg" alt="Sumit Goswami">
                 <div class="member-info">
-                    <div class="member-name">Sagar Sonker</div>
+                    <div class="member-name">Sumit Goswami</div>
+                    <div class="member-role">President</div>
+                </div>
+            </div>
+            <div class="member-card">
+                <img src="./images/team-kavita-upadhyay.jpg" alt="Kavita Upadhyay">
+                <div class="member-info">
+                    <div class="member-name">Kavita Upadhyay</div>
+                    <div class="member-role">Vice-President</div>
+                </div>
+            </div>
+            <div class="member-card">
+                <img src="./images/team-ankit-pant.jpg" alt="Ankit Pant">
+                <div class="member-info">
+                    <div class="member-name">Ankit Pant</div>
                     <div class="member-role">Secretary</div>
                 </div>
             </div>
-
             <div class="member-card">
-                <img src="./images/team-deepak-puls.jpg" alt="Deepak Puls">
+                <img src="./images/founding-prakhar-joshi.jpg" alt="Prakhar Joshi">
                 <div class="member-info">
-                    <div class="member-name">Deepak Puls</div>
-                    <div class="member-role">Vice President</div>
-                </div>
-            </div>
-
-            <div class="member-card">
-                <img src="./images/team-deepa-bisht.jpg" alt="Deepa Bisht">
-                <div class="member-info">
-                    <div class="member-name">Deepa Bisht</div>
-                    <div class="member-role">Female Vice President</div>
-                </div>
-            </div>
-
-            <div class="member-card">
-                <img src="./images/team-neeraj-bisht.jpg" alt="Neeraj Bisht">
-                <div class="member-info">
-                    <div class="member-name">Neeraj Bisht</div>
+                    <div class="member-name">Prakhar Joshi</div>
                     <div class="member-role">Treasurer</div>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- FOUNDING MEMBERS Section -->
-    <section class="section" id="founders">
-        <h2 class="section-title green-title">Founding Members</h2>
-        <p class="section-subtitle">The dreamers and doers who laid the foundation</p>
-        
-        <div class="members-grid">
             <div class="member-card">
                 <img src="./images/founding-jitendar-martoliya.jpg" alt="Jitendar Martoliya">
                 <div class="member-info">
@@ -1557,7 +1509,6 @@
                     <div class="member-role">Founding Member</div>
                 </div>
             </div>
-
             <div class="member-card">
                 <img src="./images/founding-arjun-bohara.jpg" alt="Arjun Bohara">
                 <div class="member-info">
@@ -1565,7 +1516,6 @@
                     <div class="member-role">Founding Member</div>
                 </div>
             </div>
-
             <div class="member-card">
                 <img src="./images/founding-lokesh-bisht.jpg" alt="Lokesh Bisht">
                 <div class="member-info">
@@ -1573,7 +1523,6 @@
                     <div class="member-role">Founding Member</div>
                 </div>
             </div>
-
             <div class="member-card">
                 <img src="./images/founding-deepak-joshi.jpg" alt="Deepak Joshi">
                 <div class="member-info">
@@ -1581,7 +1530,6 @@
                     <div class="member-role">Founding Member</div>
                 </div>
             </div>
-
             <div class="member-card">
                 <img src="./images/founding-abhishek-tiwari.jpg" alt="Abhishek Tiwari">
                 <div class="member-info">
@@ -1589,7 +1537,6 @@
                     <div class="member-role">Founding Member</div>
                 </div>
             </div>
-
             <div class="member-card">
                 <img src="./images/founding-dinesh-pandey.jpg" alt="Dinesh Pandey">
                 <div class="member-info">
@@ -1597,7 +1544,6 @@
                     <div class="member-role">Founding Member</div>
                 </div>
             </div>
-
             <div class="member-card">
                 <img src="./images/founding-shiva-bisht.jpg" alt="Shiva Bisht">
                 <div class="member-info">
@@ -1605,7 +1551,6 @@
                     <div class="member-role">Joint Secretary (Founding Member)</div>
                 </div>
             </div>
-
             <div class="member-card">
                 <img src="./images/founding-deepti-bora.jpg" alt="Deepti Bora">
                 <div class="member-info">
@@ -1613,7 +1558,6 @@
                     <div class="member-role">Media Relations Manager (Founding Member)</div>
                 </div>
             </div>
-
             <div class="member-card">
                 <img src="./images/founding-chetan-mehra.jpg" alt="Chetan Mehra">
                 <div class="member-info">
@@ -1624,221 +1568,148 @@
         </div>
     </section>
 
-    <!-- KEY ROLES Section -->
     <section class="section" id="key-roles">
         <h2 class="section-title green-title">Key Roles</h2>
         <p class="section-subtitle">Leadership and specialized expertise</p>
-        
         <div class="members-grid">
             <div class="member-card">
-                <img src="./images/key-role-deepak-thapa.jpg" alt="Deepak Thapa">
+                <img src="./images/role-dinesh-mehra.jpg" alt="Dinesh Mehra">
                 <div class="member-info">
-                    <div class="member-name">Deepak Thapa</div>
-                    <div class="member-role">Head of Photography / Videography</div>
+                    <div class="member-name">Dinesh Mehra</div>
+                    <div class="member-role">Legal Head</div>
                 </div>
             </div>
-
             <div class="member-card">
-                <img src="./images/key-role-deepak-bisht.jpg" alt="Deepak Bisht">
+                <img src="./images/role-nandan-rawat.jpg" alt="Nandan Singh Rawat">
                 <div class="member-info">
-                    <div class="member-name">Deepak Bisht</div>
-                    <div class="member-role">Fund Manager (CEO)</div>
+                    <div class="member-name">Nandan Singh Rawat</div>
+                    <div class="member-role">General Consultant</div>
+                </div>
+            </div>
+            <div class="member-card">
+                <img src="./images/role-dr-manoj-josh.jpg" alt="Dr. Manoj Josh">
+                <div class="member-info">
+                    <div class="member-name">Dr. Manoj Josh</div>
+                    <div class="member-role">Advisor</div>
+                </div>
+            </div>
+            <div class="member-card">
+                <img src="./images/role-pawan-joshi.jpg" alt="Pawan Joshi">
+                <div class="member-info">
+                    <div class="member-name">Pawan Joshi</div>
+                    <div class="member-role">Youth Coordinator</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ACTIVE MEMBERS Section -->
-    <section class="section" id="active-members">
-        <h2 class="section-title green-title">Active Members</h2>
-        <p class="section-subtitle">Dedicated team members contributing to our mission</p>
-        
-        <div class="members-grid">
-            <div class="member-card">
-                <img src="./images/active-himanshu-bisht.jpg" alt="Himanshu Bisht">
-                <div class="member-info">
-                    <div class="member-name">Himanshu Bisht</div>
-                    <div class="member-role">Active Member</div>
-                </div>
-            </div>
-
-            <div class="member-card">
-                <img src="./images/active-amit-vidhyarthi.jpg" alt="Amit Vidhyarthi">
-                <div class="member-info">
-                    <div class="member-name">Amit Vidhyarthi</div>
-                    <div class="member-role">Active Member</div>
-                </div>
-            </div>
-
-            <div class="member-card">
-                <img src="./images/active-chandar-kant-joshi.jpg" alt="Chandar Kant Joshi">
-                <div class="member-info">
-                    <div class="member-name">Chandar Kant Joshi</div>
-                    <div class="member-role">Active Member</div>
-                </div>
-            </div>
-
-            <div class="member-card">
-                <img src="./images/active-manoj-kumar.jpg" alt="Manoj Kumar">
-                <div class="member-info">
-                    <div class="member-name">Manoj Kumar</div>
-                    <div class="member-role">Active Member</div>
-                </div>
-            </div>
-
-            <div class="member-card">
-                <img src="./images/active-aarav.jpg" alt="Aarav">
-                <div class="member-info">
-                    <div class="member-name">Aarav</div>
-                    <div class="member-role">Active Member</div>
-                </div>
-            </div>
-
-            <div class="member-card">
-                <img src="./images/active-vipul-bisht.jpg" alt="Vipul Bisht">
-                <div class="member-info">
-                    <div class="member-name">Vipul Bisht (Bobby)</div>
-                    <div class="member-role">Active Manager</div>
-                </div>
-            </div>
-
-            <div class="member-card">
-                <img src="./images/active-pankaj-gadhiya.jpg" alt="Pankaj Gadhiya">
-                <div class="member-info">
-                    <div class="member-name">Pankaj Gadhiya</div>
-                    <div class="member-role">Active Member</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Mission Quote -->
     <section class="mission-quote">
         <blockquote>
-            Every act of kindness ripples through the mountains, connecting and healing us all. We believe true progress happens when we laugh together, learn together, and lift each other up—with joy at the center of every initiative.
+            Our purpose is to inject joy into the hills—blending fun and laughter with action, preserving our culture, and healing us all. We believe true progress happens when we laugh together, learn together, and lift each other up—with joy at the center of every initiative.
         </blockquote>
         <cite>— Our Mission & Vision</cite>
     </section>
 
-    <!-- Focus Areas Section -->
     <section class="section" id="focus">
         <h2 class="section-title">Our Focus Areas</h2>
         <p class="section-subtitle">Comprehensive community empowerment across 11 vital sectors</p>
-        
         <div class="focus-grid">
             <div class="focus-card">
                 <span class="focus-icon">📚</span>
                 <h3>Education</h3>
                 <p>Empowering young minds with hilltop learning and access to quality education for every child in our communities.</p>
             </div>
-
             <div class="focus-card">
                 <span class="focus-icon">🌾</span>
                 <h3>Agriculture</h3>
                 <p>Eco-friendly farming revives lands and livelihoods, bringing sustainable prosperity back to our mountain villages.</p>
             </div>
-
             <div class="focus-card">
                 <span class="focus-icon">🌿</span>
                 <h3>Environment</h3>
                 <p>Preserving nature's gifts through awareness and action, protecting the pristine beauty of our Himalayan home.</p>
             </div>
-
             <div class="focus-card">
                 <span class="focus-icon">🏞️</span>
                 <h3>Tourism</h3>
-                <p>Community-powered tourism brings sustainable growth while honoring our heritage and natural wonders.</p>
+                <p>Community-powered tourism 
+                brings sustainable growth while honoring our heritage and natural wonders.</p>
             </div>
-
             <div class="focus-card">
                 <span class="focus-icon">🎭</span>
                 <h3>Art & Culture</h3>
                 <p>Festivals and workshops celebrate our rich heritage, keeping traditions alive for future generations.</p>
             </div>
-
             <div class="focus-card">
                 <span class="focus-icon">🎨</span>
                 <h3>Inclusive Child Development</h3>
                 <p>Special children and their peers shine together in joyful clinics, where every child belongs and thrives.</p>
             </div>
-
             <div class="focus-card">
                 <span class="focus-icon">🛡️</span>
                 <h3>Disaster Management</h3>
                 <p>Preparedness saves lives—neighbors become heroes through training and community resilience programs.</p>
             </div>
-
             <div class="focus-card">
                 <span class="focus-icon">👴</span>
                 <h3>Elderly Care</h3>
                 <p>Warmth and wisdom shared across generations, honoring our elders with dignity and compassion.</p>
             </div>
-
             <div class="focus-card">
                 <span class="focus-icon">⚕️</span>
-                <h3>Health & Welfare</h3>
+                <h3>Health & 
+                Welfare</h3>
                 <p>Free clinics and yoga retreats nurture hill families with holistic healthcare and wellness programs.</p>
             </div>
-
             <div class="focus-card">
                 <span class="focus-icon">✊</span>
                 <h3>Labour & Human Rights</h3>
                 <p>Advocacy ensures fair wages and empowerment for all workers, protecting dignity and justice.</p>
             </div>
-
             <div class="focus-card">
                 <span class="focus-icon">💼</span>
-                <h3>Youth & Employment</h3>
-                <p>Training and talent programs connect youth to green jobs, building careers rooted in sustainability.</p>
+                <h3>Youth Employment</h3>
+                <p>Skill development and job creation initiatives keep the pahadi spirit vibrant by empowering the next generation.</p>
             </div>
         </div>
     </section>
 
-    <!-- Achievements Section -->
     <section class="section" id="achievements">
-        <h2 class="section-title">Our Journey</h2>
-        <p class="section-subtitle">Milestones of love, dedication, and community impact</p>
-        
+        <h2 class="section-title green-title">Key Achievements</h2>
+        <p class="section-subtitle">Our journey of impact, marked by milestones and community success</p>
         <div class="timeline">
-            <div class="timeline-item">
-                <h3>🩸 Blood Donation Drives</h3>
-                <p>Youth-led camps saving lives across our communities, bringing hope to those in need through the gift of life.</p>
+            <div class="timeline-item" style="--icon-content: '1'">
+                <h3>🩸 Mega Blood Donation Camps</h3>
+                <p>Hosting life-saving events where community heroes come together to donate blood for those in critical need.</p>
             </div>
-
-            <div class="timeline-item">
-                <h3>🎉 Janmashtami Mahotsav</h3>
-                <p>A festival of joy, devotion, and dance—bringing our community together in celebration of faith and culture.</p>
+            <div class="timeline-item" style="--icon-content: '2'">
+                <h3>🎭 The Legend of Rajula & Malushahi</h3>
+                <p>A mesmerizing Kumaoni folk act brought the legendary love story of Rajula and Malushahi to life on the grand stage of YUCA 2025.</p>
             </div>
-
-            <div class="timeline-item">
-                <h3>🎭 Kumaoni Digital Ramleela</h3>
+            <div class="timeline-item" style="--icon-content: '3'">
+                <h3>💻 Digital Ramleela</h3>
                 <p>Pioneering online tradition during challenging times, keeping our cultural flame burning bright in the digital age.</p>
             </div>
-
-            <div class="timeline-item">
+            <div class="timeline-item" style="--icon-content: '4'">
                 <h3>🏘️ Village Outreach Programs</h3>
                 <p>Cleanliness drives, compassion initiatives, and education programs reaching remote villages with care and commitment.</p>
             </div>
-
-            <div class="timeline-item">
+            <div class="timeline-item" style="--icon-content: '5'">
                 <h3>🌱 Sustainable Agriculture Workshops</h3>
                 <p>Empowering farmers with eco-friendly techniques, reviving traditional wisdom with modern sustainability.</p>
             </div>
-
-            <div class="timeline-item">
+            <div class="timeline-item" style="--icon-content: '6'">
                 <h3>🎪 Community Festivals & Cultural Events</h3>
                 <p>Year-round celebrations bringing laughter, art, music, and unity to every corner of our hills.</p>
             </div>
         </div>
     </section>
 
-    <!-- Gallery Section -->
     <section class="section" id="gallery">
         <h2 class="section-title">Experience Our Journey</h2>
-        <p class="section-subtitle">Festivals, community service, and creating lasting impact together</p>
-        
+        <p class="section-subtitle">Festivals, community service, and creating 
+        lasting impact together</p>
         <div class="gallery-grid">
-            <!-- Blood Donation Images -->
             <div class="gallery-item">
                 <img src="./images/blood-donation-1.jpeg" alt="Blood Donation Drive - Community Hero">
                 <div class="gallery-label">Blood Donation Drive - Community Hero</div>
@@ -1855,8 +1726,6 @@
                 <img src="./images/blood-donation-4.jpeg" alt="Blood Donation - Saving Lives">
                 <div class="gallery-label">Blood Donation - Saving Lives</div>
             </div>
-            
-            <!-- Janmashtami Mahotsav Images -->
             <div class="gallery-item">
                 <img src="./images/janmashtami-1.jpeg" alt="Janmashtami Mahotsav - Team Photo">
                 <div class="gallery-label">Janmashtami Mahotsav - Team Photo</div>
@@ -1873,52 +1742,47 @@
                 <img src="./images/janmashtami-4.jpeg" alt="Festival Preparations">
                 <div class="gallery-label">Festival Preparations</div>
             </div>
-            
-            <!-- Environment & Tourism -->
             <div class="gallery-item">
                 <img src="./images/plantation.jpeg" alt="Tree Plantation Drive">
                 <div class="gallery-label">Tree Plantation Drive</div>
             </div>
             <div class="gallery-item">
-                <img src="./images/tourism-1.jpeg" alt="Mountain Heritage Tourism">
-                <div class="gallery-label">Mountain Heritage Tourism</div>
-            </div>
-            
-            <!-- Elderly Care -->
-            <div class="gallery-item">
-                <img src="./images/elderly-care-1.jpeg" alt="Elderly Care Program">
-                <div class="gallery-label">Elderly Care Program</div>
+                <img src="./images/tourism-1.jpeg" alt="Promoting Local Tourism">
+                <div class="gallery-label">Promoting Local Tourism</div>
             </div>
             <div class="gallery-item">
-                <img src="./images/elderly-care-2.jpeg" alt="Senior Citizens Outreach">
-                <div class="gallery-label">Senior Citizens Outreach</div>
+                <img src="./images/tourism-2.jpeg" alt="Himalayan Heritage">
+                <div class="gallery-label">Himalayan Heritage</div>
+            </div>
+            <div class="gallery-item">
+                <img src="./images/tourism-3.jpeg" alt="Mountain View">
+                <div class="gallery-label">Mountain View</div>
             </div>
         </div>
     </section>
 
-    <!-- Videos Section -->
     <section class="section" id="videos">
-        <h2 class="section-title">Our Video Stories</h2>
-        <p class="section-subtitle">Watch our community impact in action - documentaries, testimonials, and behind-the-scenes moments</p>
-        
+        <h2 class="section-title">Watch Our Impact</h2>
+        <p class="section-subtitle">A collection of stories, culture, and transformation from the hills</p>
         <div class="videos-grid">
-            <!-- Blood Donation Drive Documentary -->
-            <div class="video-card" onclick="openVideoModal('6JtaPCtjFF4', 'Rajula Malushahi The Story')">
+            <div class="video-card" onclick="openVideoModal('1k5qE1s8UaY', 'Rajula and Malushahi')">
                 <div class="video-thumbnail">
-                    <img src="https://img.youtube.com/vi/6JtaPCtjFF4/sddefault.jpg" alt="Rajula Malushahi The Story">
+                    <img src="https://img.youtube.com/vi/1k5qE1s8UaY/sddefault.jpg" alt="Rajula and Malushahi">
                     <div class="play-button">▶</div>
-                    <span class="video-duration">6:32</span>
+                    <span class="video-duration">4:02</span>
                 </div>
                 <div class="video-info">
-                    <h3>Rajula Malushahi The Story</h3>
-                    <p>Performed by Santokh Bisht, Bhawana Kandpal,@ and Deepak Puls, and choreographed by Deepak Puls, this breathtaking act brought the legendary love story of Rajula and Malushahi to life on the grand stage of YUCA 2025. ✨
-The tale of Rajula and Malushahi tells of King Dola Shah of Bairath, who prayed to Lord Shiva for a child and promised to marry his son to a friend’s daughter. The boy Malushahi and the girl Rajula were symbolically married as children, but fate separated them. Years later, Rajula defied all odds, traveling through mountains and rivers to find her beloved Malushahi. Their love, tested by time, betrayal, and destiny, became an everlasting symbol of Uttarakhand’s cultural spirit. 🌄❤️
-This timeless story, brought to life on stage, celebrates the courage, devotion, and emotional depth of Uttarakhand’s heritage. 🌸🎶</p>
+                    <h3>The Legend of Rajula and Malushahi</h3>
+                    <p>A mesmerizing Kumaoni folk act brought the legendary love story of Rajula and Malushahi to life on the grand stage of YUCA 2025. ✨ The tale of Rajula and Malushahi tells of King Dola Shah of Bairath, who prayed to Lord Shiva for a child and promised to marry his son to a friend’s daughter.
+                    The boy Malushahi and the girl Rajula were symbolically married as children, but fate separated them.
+                    Years later, Rajula defied all odds, traveling through mountains and rivers to find her beloved Malushahi.
+                    Their love, tested by time, betrayal, and destiny, became an everlasting symbol of Uttarakhand’s cultural spirit.
+                    🌄❤️ This timeless story, brought to life on stage, celebrates the courage, devotion, and emotional depth of Uttarakhand’s heritage.
+                    🌸🎶</p>
                     <span class="video-tag">Cultural</span>
                 </div>
             </div>
 
-            <!-- Janmashtami Festival Celebration -->
             <div class="video-card" onclick="openVideoModal('Jeyl4rbmQLw', 'Kumaoni Ramleela')">
                 <div class="video-thumbnail">
                     <img src="https://img.youtube.com/vi/Jeyl4rbmQLw/sddefault.jpg" alt="Kumaoni Ramleela">
@@ -1927,13 +1791,11 @@ This timeless story, brought to life on stage, celebrates the courage, devotion,
                 </div>
                 <div class="video-info">
                     <h3>Kumaoni Ramleela</h3>
-                    <p>ये प्रचार वर्षो से जीवित चली आ रही प्रथा को जीवित रखने के लिए किया गया है, आप ये प्रसारण सायं को लोकल चैनल या यूट्यूब के माध्यम से देख सकते है इस के लिए आपको हमे चैनल को सब्सक्राइब भी जरूर कीजियेगा , 
-                        आप के प्रेम से से ही हम इस कार्यक्रम को समस्त जनों तक पंहुचा सकते है, धन्यवाद</p>
+                    <p>ये प्रचार वर्षो से जीवित चली आ रही प्रथा को जीवित रखने के लिए किया गया है, आप ये प्रसारण सायं को लोकल चैनल या यूट्यूब के माध्यम से देख सकते है इस के लिए आपको हमे चैनल को सब्सक्राइब भी जरूर कीजियेगा , आप के प्रेम से से ही हम इस कार्यक्रम को समस्त जनों तक पंहुचा सकते है, धन्यवाद</p>
                     <span class="video-tag">Festival</span>
                 </div>
             </div>
 
-            <!-- Community Stories - Elderly Care -->
             <div class="video-card" onclick="openVideoModal('PCgdTh5xy1Y', 'Jodi First Class')">
                 <div class="video-thumbnail">
                     <img src="https://img.youtube.com/vi/PCgdTh5xy1Y/sddefault.jpg" alt="Jodi First Class">
@@ -1942,92 +1804,66 @@ This timeless story, brought to life on stage, celebrates the courage, devotion,
                 </div>
                 <div class="video-info">
                     <h3>Jodi First Class</h3>
-                    <p>Presenting you the Official Video of the Latest Uttrakahndi  Song 2022 "Jodi First Class"</p>
+                    <p>Presenting you the Official Video of the Latest Uttrakahndi Song 2022 "Jodi First Class"</p>
                     <span class="video-tag">Entertainment</span>
                 </div>
             </div>
 
-            <!-- Environmental Initiative - Tree Plantation -->
-            <div class="video-card" onclick="openVideoModal('3up0nW4tyvM', 'Nanda Devi Mahotsav')">
+            <div class="video-card" onclick="openVideoModal('3up0nW4tyvM', 'Tree Plantation Drive')">
                 <div class="video-thumbnail">
-                    <img src="https://img.youtube.com/vi/3up0nW4tyvM/sddefault.jpg" alt="Nanda Devi Mahotsav">
+                    <img src="https://img.youtube.com/vi/3up0nW4tyvM/sddefault.jpg" alt="Tree Plantation Drive">
                     <div class="play-button">▶</div>
-                    <span class="video-duration">9:15</span>
+                    <span class="video-duration">4:00</span>
                 </div>
                 <div class="video-info">
-                    <h3>Nanda Devi Mahotsav</h3>
-                    <p>Nanda Devi Mahotsav, Nainital</p>
-                    <span class="video-tag">Devotion</span>
+                    <h3>Tree Plantation Drive</h3>
+                    <p>A glimpse of our massive tree plantation drive in collaboration with local communities, planting the seeds of a greener future for our hills.</p>
+                    <span class="video-tag">Environment</span>
                 </div>
             </div>
 
-            <!-- Education Initiative -->
-            <div class="video-card" onclick="openVideoModal('nDsIy6kRhms', 'Lehra do')">
+            <div class="video-card" onclick="openVideoModal('1gG7Y1eG-iQ', 'Motivation')">
                 <div class="video-thumbnail">
-                    <img src="https://img.youtube.com/vi/nDsIy6kRhms/sddefault.jpg" alt="Lehra do">
-                    <div class="play-button">▶</div>
-                    <span class="video-duration">11:30</span>
-                </div>
-                <div class="video-info">
-                    <h3>Lehra Do</h3>
-                    <p>Lehra Do - Full Video | 83 | Ranveer Singh, Kabir Khan | Pritam, Arijit Singh, Kausar Munir</p>
-                    <span class="video-tag">Entertainment</span>
-                </div>
-            </div>
-
-            <!-- Founder's Message -->
-            <div class="video-card" onclick="openVideoModal('9iIX4PBplAY', 'Motivation')">
-                <div class="video-thumbnail">
-                    <img src="https://img.youtube.com/vi/9iIX4PBplAY/sddefault.jpg" alt="Motivation">
+                    <img src="https://img.youtube.com/vi/1gG7Y1eG-iQ/sddefault.jpg" alt="Motivation">
                     <div class="play-button">▶</div>
                     <span class="video-duration">3:30</span>
                 </div>
                 <div class="video-info">
                     <h3>Motivation</h3>
-                    <p>Presenting “Kar Har Maidaan Fateh” Full Video Song, a song about hope and courage. Based on the life of Bollywood star Sanjay Dutt, and directed by Rajkumar Hirani,  A Vinod Chopra Films and Rajkumar Hirani Films production, 
-                        presented by Fox Star Studios, the movie stars Ranbir Kapoor, Paresh Rawal and Manisha Koirala in the lead. </p>
+                    <p>Presenting “Kar Har Maidaan Fateh” Full Video Song, a song about hope and courage.
+                    Based on the life of Bollywood star Sanjay Dutt, and directed by Rajkumar Hirani, A Vinod Chopra Films and Rajkumar Hirani Films production, presented by Fox Star Studios, the movie stars Ranbir Kapoor, Paresh Rawal and Manisha Koirala in the lead.
+                    </p>
                     <span class="video-tag">Entertainment</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Video Modal -->
     <div id="videoModal" class="video-modal" onclick="closeVideoModal()">
         <div class="video-modal-content" onclick="event.stopPropagation()">
             <button class="video-modal-close" onclick="closeVideoModal()">✕</button>
             <div class="video-embed-container">
-                <iframe 
-                    id="videoFrame" 
-                    width="100%" 
-                    height="100%" 
-                    src="" 
-                    title="YouTube video player" 
-                    frameborder="0" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                    allowfullscreen>
-                </iframe>
+                <iframe id="videoFrame" width="100%" height="100%" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
             <div id="videoModalTitle" class="video-modal-title"></div>
         </div>
     </div>
 
-    <!-- Join Section -->
     <section class="join-section" id="join">
         <div class="join-content">
             <h2 class="section-title">Join the Movement</h2>
-            <p>Dil se Pahadi—storytellers, fundraisers, dreamers, and doers. Add your smile to our canvas of kindness and be part of something bigger than yourself.</p>
-            <p>Whether you want to volunteer, donate, or simply spread the word—every contribution matters. Together, we can create lasting change in the hills we call home.</p>
+            <p>Dil se Pahadi—storytellers, fundraisers, dreamers, and doers.
+            Add your smile to our canvas of kindness and be part of something bigger than yourself.</p>
+            <p>Whether you want to volunteer, donate, or simply spread the word—every contribution matters.
+            Together, we can create lasting change in the hills we call home.</p>
             <div class="cta-buttons">
                 <a href="mailto:contact@yooopahad.org" class="btn btn-primary">Get in Touch</a>
                 <a href="#volunteer" class="btn btn-secondary">Become a Volunteer</a>
             </div>
         </div>
     </section>
-
     <div class="mountain-divider"></div>
 
-    <!-- Footer -->
     <footer>
         <div class="footer-content">
             <div class="footer-section">
@@ -2035,79 +1871,248 @@ This timeless story, brought to life on stage, celebrates the courage, devotion,
                 <p>Empowering communities, preserving heritage, and spreading kindness in the hills of Nainital, Uttarakhand.</p>
                 <p style="margin-top: 1rem;"><strong>Founded:</strong> September 9, 2025</p>
             </div>
-
             <div class="footer-section">
                 <h3>Quick Links</h3>
                 <a href="#about">About Us</a>
-                <a href="#focus">Focus Areas</a>
-                <a href="#achievements">Our Achievements</a>
-                <a href="#gallery">Gallery</a>
-                <a href="#videos">Videos</a>
-                <a href="#join">Join Us</a>
+                <a href="#focus">Our Focus</a>
+                <a href="#team">Our Team</a>
+                <a href="#achievements">Achievements</a>
+                <a href="#join">Get Involved</a>
+                <a href="#" onclick="openDonateModal(); return false;">Donate</a>
             </div>
-
             <div class="footer-section">
-                <h3>Contact Us</h3>
-                <p>📍 Nainital, Uttarakhand, India</p>
-                <p>📧 contact@yooopahad.org</p>
-                <p>📱 +91-XXXXX-XXXXX</p>
+                <h3>Contact</h3>
+                <p><strong>Email:</strong> contact@yooopahad.org</p>
+                <p><strong>Phone:</strong> +91 98765 43210</p>
+                <p><strong>Address:</strong> Nainital, Uttarakhand, India</p>
+            </div>
+            <div class="footer-section">
+                <h3>Connect</h3>
+                <p>Follow our journey on social media.</p>
                 <div class="social-links">
-                    <a href="#" title="Facebook">📘</a>
-                    <a href="#" title="Instagram">📷</a>
-                    <a href="#" title="Twitter">🐦</a>
-                    <a href="#" title="YouTube">📺</a>
+                    <a href="https://www.facebook.com/yooopahadfoundation" target="_blank" class="social-link">📘</a>
+                    <a href="https://www.instagram.com/yooopahadfoundation" target="_blank" class="social-link">📸</a>
+                    <a href="https://www.youtube.com/@yooopahadfoundation" target="_blank" class="social-link">▶️</a>
+                    <a href="https://twitter.com/yooopahad" target="_blank" class="social-link">🐦</a>
                 </div>
             </div>
-
-            <div class="footer-section">
-                <h3>Get Involved</h3>
-                <a href="#donate">Donate Now</a>
-                <a href="#volunteer">Volunteer</a>
-                <a href="#partner">Partner With Us</a>
-                <a href="#events">Upcoming Events</a>
-            </div>
         </div>
-
         <div class="footer-bottom">
-            <p>&copy; 2025 Yooo Pahad Foundation. All rights reserved.</p>
-            <p class="footer-tagline">#PahadWithLove – Building Futures, One Smile at a Time</p>
+            &copy; 2025 Yooo Pahad Foundation. All Rights Reserved.
         </div>
     </footer>
 
-    <!-- ==================== AI CHATBOT WIDGET ==================== -->
     <div class="chatbot-widget">
-        <button class="chatbot-toggle" onclick="toggleChatbot()" title="Open AI Chat">💬</button>
-        
+        <button class="chatbot-toggle" onclick="toggleChatbot()">+</button>
         <div class="chatbot-container" id="chatbotContainer">
             <div class="chatbot-header">
-                <h3>Pahadi Bhula</h3>
-                <p>How can we help you today?</p>
+                <h4>Yooo Pahad Bot</h4>
+                <p>Your friendly guide to our mission.</p>
             </div>
-            
             <div class="chatbot-messages" id="chatbotMessages">
-                <div class="message bot">
-                    <div class="message-text">
-                        Hello! 👋 Welcome to Yooo Pahad Foundation, My name is Pahadi Bhula. I'm here to help answer your questions about our programs, team, and mission. How can I assist you?
-                    </div>
+                <div class="chatbot-message bot">
+                    <div class="message-text">Hello! I'm here to help you learn about Yooo Pahad Foundation. Ask me anything!</div>
                 </div>
             </div>
-            
             <div class="chatbot-input-area">
-                <input 
-                    type="text" 
-                    class="chatbot-input" 
-                    id="chatbotInput" 
-                    placeholder="Type your message..."
-                    onkeypress="handleKeyPress(event)"
-                >
+                <input type="text" class="chatbot-input" id="chatbotInput" placeholder="Type your message..." onkeypress="handleKeyPress(event)" >
                 <button class="chatbot-send-btn" onclick="sendChatbotMessage()">➤</button>
             </div>
         </div>
     </div>
+    <div id="donateModal" class="modal">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <button class="modal-close" onclick="closeDonateModal()">✕</button>
+            <h2>Support Our Cause</h2>
+            <p>Your donation empowers our work in the hills. Minimum donation is ₹100.</p>
 
-    <!-- ==================== END CHATBOT WIDGET ==================== -->
+            <form id="donationForm" onsubmit="submitDonation(event)">
+                <div class="form-group">
+                    <label for="donorName">Full Name</label>
+                    <input type="text" id="donorName" required>
+                </div>
+                <div class="form-group">
+                    <label for="donorEmail">Email</label>
+                    <input type="email" id="donorEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="donorPhone">Phone Number</label>
+                    <input type="tel" id="donorPhone" required>
+                </div>
+                <div class="form-group">
+                    <label for="donorAddress">Address (For Receipt)</label>
+                    <input type="text" id="donorAddress" required>
+                </div>
+                <div class="form-group">
+                    <label for="donorPAN">PAN Number (Optional, for 80G Tax Exemption)</label>
+                    <input type="text" id="donorPAN" maxlength="10">
+                </div>
 
+                <div class="form-group">
+                    <label for="donationAmount">Select Donation Amount (INR)</label>
+                    <select id="donationAmount" required>
+                        <option value="">Select Amount</option>
+                        <option value="500">₹ 500</option>
+                        <option value="1000">₹ 1,000</option>
+                        <option value="2500">₹ 2,500</option>
+                        <option value="5000">₹ 5,000</option>
+                        <option value="custom">Custom Amount</option>
+                    </select>
+                </div>
+
+                <div class="form-group" id="customAmountGroup">
+                    <label for="customAmount">Enter Custom Amount (Min ₹100)</label>
+                    <input type="number" id="customAmount" min="100">
+                </div>
+
+                <button type="submit" class="btn btn-primary">Proceed to Pay</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="thankYouModal" class="modal" onclick="closeThankYouModal()">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <button class="modal-close" onclick="closeThankYouModal()">✕</button>
+            <h2>Thank You!</h2>
+            <p>Your kindness fuels our mission to empower the hills.</p>
+
+            <div class="thank-you-details">
+                <div><strong>Donor Name:</strong> <span id="thankYouName"></span></div>
+                <div><strong>Amount Paid:</strong> <span id="thankYouAmount"></span></div>
+                <div><strong>Payment ID:</strong> <span id="thankYouPaymentId"></span></div>
+            </div>
+
+            <p class="thank-you-message">A confirmation receipt has been sent to your email. You can close this window now.</p>
+            <button class="btn btn-secondary" onclick="closeThankYouModal()">Close</button>
+        </div>
+    </div>
+    
+
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
     <script>
+        // Modal logic (required for opening/closing donation/thank you modals)
+        function openDonateModal() {
+            document.getElementById('donateModal').style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+        function closeDonateModal() {
+            document.getElementById('donateModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+            document.getElementById('donationForm').reset();
+            document.getElementById('customAmountGroup').style.display = 'none';
+        }
+        function closeThankYouModal() {
+            document.getElementById('thankYouModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+        // Show/hide custom amount box
+        document.getElementById('donationAmount').addEventListener('change', function() {
+            if (this.value === 'custom') {
+                document.getElementById('customAmountGroup').style.display = 'block';
+                document.getElementById('customAmount').focus();
+            } else {
+                document.getElementById('customAmountGroup').style.display = 'none';
+            }
+        });
+        // Payment gateway + Google Sheet logic
+        const RAZORPAY_KEY_ID = 'rzp_test_1OfxjiN3MU8zJ4'; // Replace with your live key!
+        const GOOGLE_SHEETS_WEBHOOK_URL = 'https://api.sheetdb.io/v1/YOUR_SHEET_ID_HERE'; // Your SheetDB webhook
+
+        function submitDonation(event) {
+            event.preventDefault();
+            const donorName = document.getElementById('donorName').value;
+            const donorEmail = document.getElementById('donorEmail').value;
+            const donorPhone = document.getElementById('donorPhone').value;
+            const donorAddress = document.getElementById('donorAddress').value;
+            const donorPAN = document.getElementById('donorPAN').value || 'N/A';
+            let donationAmount = document.getElementById('donationAmount').value;
+            if (donationAmount === 'custom') {
+                donationAmount = document.getElementById('customAmount').value;
+            }
+            if (!donationAmount || donationAmount < 100) {
+                alert('Please enter a valid donation amount (minimum ₹100)');
+                return;
+            }
+            // Store data in sessionStorage to retrieve after successful payment
+            sessionStorage.setItem('donationData', JSON.stringify({
+                name: donorName, email: donorEmail, phone: donorPhone,
+                address: donorAddress, pan: donorPAN, amount: donationAmount
+            }));
+            initiateRazorpayPayment(donationAmount, donorName, donorEmail);
+        }
+        function initiateRazorpayPayment(amount, name, email) {
+            const options = {
+                key: RAZORPAY_KEY_ID,
+                amount: amount * 100, // Razorpay uses smallest unit (paise)
+                currency: 'INR',
+                name: 'Yooo Pahad Foundation',
+                description: 'Donation',
+                prefill: {name: name, email: email},
+                theme: {color: '#00D9FF'},
+                handler: function(response) { onPaymentSuccess(response); },
+                modal: { ondismiss: function() { alert('Payment cancelled. Try again.'); } }
+            };
+            const rzp = new Razorpay(options);
+            rzp.open();
+        }
+        function onPaymentSuccess(razorpayResponse) {
+            const donationData = JSON.parse(sessionStorage.getItem('donationData'));
+            const sheetData = {
+                data: [{
+                    timestamp: new Date().toLocaleString('en-IN'),
+                    donor_name: donationData.name,
+                    donor_email: donationData.email,
+                    donor_phone: donationData.phone,
+                    donor_address: donationData.address,
+                    donor_pan: donationData.pan,
+                    donation_amount: donationData.amount,
+                    payment_id: razorpayResponse.razorpay_payment_id,
+                    payment_status: 'SUCCESS',
+                    '80g_eligible': donationData.pan !== 'N/A' ? 'YES' : 'PENDING'
+                }]
+            };
+            // Send data to Google Sheet asynchronously
+            sendToGoogleSheets(sheetData, donationData, razorpayResponse.razorpay_payment_id);
+        }
+        function sendToGoogleSheets(sheetData, donationData, paymentId) {
+            fetch(GOOGLE_SHEETS_WEBHOOK_URL, {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify(sheetData.data[0])
+            })
+            .then(response => response.json())
+            .then(data => {
+                showThankYouModal(donationData, paymentId);
+                sessionStorage.removeItem('donationData');
+            })
+            .catch(error => {
+                // Show thank you modal even if sheet logging fails
+                showThankYouModal(donationData, paymentId);
+            });
+        }
+        function showThankYouModal(donationData, paymentId) {
+            closeDonateModal();
+            document.getElementById('thankYouName').textContent = donationData.name;
+            document.getElementById('thankYouAmount').textContent = '₹ ' + donationData.amount;
+            // Truncate payment ID for display
+            document.getElementById('thankYouPaymentId').textContent = paymentId ? (paymentId.substring(0, 4) + '... ' + paymentId.substring(12, 16) + '...') : '-';
+            document.getElementById('thankYouModal').style.display = 'flex';
+        }
+        
+        // Escape closes all modals
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeDonateModal();
+                closeThankYouModal();
+                // Close video modal if open
+                const videoModal = document.getElementById('videoModal');
+                if (videoModal.style.display === 'block' || videoModal.style.display === 'flex') {
+                    closeVideoModal();
+                }
+            }
+        });
+
+        // ==================== START OF EXISTING JAVASCRIPT LOGIC ==================== 
         // Mobile menu toggle
         function toggleMenu() {
             const navLinks = document.getElementById('navLinks');
@@ -2163,38 +2168,30 @@ This timeless story, brought to life on stage, celebrates the courage, devotion,
         function openVideoModal(videoId, title) {
             const modal = document.getElementById('videoModal');
             const frame = document.getElementById('videoFrame');
-            const titleEl = document.getElementById('videoModalTitle');
+            const modalTitle = document.getElementById('videoModalTitle');
             
-            frame.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
-            titleEl.textContent = title;
-            modal.style.display = 'block';
+            frame.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`;
+            modalTitle.textContent = title;
+            modal.style.display = 'flex';
             document.body.style.overflow = 'hidden';
         }
 
         function closeVideoModal() {
             const modal = document.getElementById('videoModal');
             const frame = document.getElementById('videoFrame');
-            
-            frame.src = '';
+
+            frame.src = ''; // Stop video playback
             modal.style.display = 'none';
             document.body.style.overflow = 'auto';
         }
 
-        // Close modal when pressing Escape
-        document.addEventListener('keydown', function(event) {
-            if (event.key === 'Escape') {
-                closeVideoModal();
-            }
-        });
-
         // ==================== CHATBOT FUNCTIONALITY ====================
-
         const sampleResponses = {
-            greeting: "Hello! Welcome to Yooo Pahad Foundation. How can I help you today?",
-            about: "Yooo Pahad Foundation is a vibrant movement transforming hillside communities through compassion and collaboration. We focus on 11 key areas including education, environment, health, and culture.",
-            team: "Our team consists of dedicated founders and volunteers from Nainital who are passionate about community development and social impact.",
-            volunteer: "We'd love to have you join us! Please reach out to contact@yooopahad.org or visit our 'Get Involved' section to learn more about volunteering opportunities.",
-            donate: "Your donations help us create lasting impact in mountain communities. You can support us through various channels. Visit our website for more details.",
+            greeting: "Hello there! I'm Yooo Pahad Bot, ready to assist you. What can I tell you about our foundation?",
+            about: "Yooo Pahad Foundation is a youth-led movement based in Nainital, Uttarakhand, dedicated to community empowerment, heritage preservation, and social kindness. We're about blending fun with purpose!",
+            team: "Our team is a group of passionate volunteers and founders, led by Dr. Santokh Singh Bisht. Everyone involved is deeply committed to the upliftment of the Pahad (hills) and its people.",
+            volunteer: "We'd love for you to join! You can volunteer your time, skills, or simply spread the word. Visit our 'Join Us' section for contact details.",
+            donate: "Your donation directly funds our work across 11 key focus areas. Please click the 'Donate' button to securely make a contribution and receive your 80G tax-exempt receipt (if PAN is provided).",
             focus: "We work across 11 focus areas: Education, Agriculture, Environment, Tourism, Art & Culture, Inclusive Child Development, Disaster Management, Elderly Care, Health & Welfare, Labour Rights, and Youth Employment.",
             location: "We are based in Nainital, Uttarakhand, India - the beautiful heart of the Himalayas.",
             contact: "You can reach us at contact@yooopahad.org or connect via our social media channels.",
@@ -2208,35 +2205,17 @@ This timeless story, brought to life on stage, celebrates the courage, devotion,
             toggle.classList.toggle('active');
         }
 
-        function sendChatbotMessage() {
-            const input = document.getElementById('chatbotInput');
-            const message = input.value.trim();
-            
-            if (!message) return;
-            
-            // Add user message
-            addMessage(message, 'user');
-            input.value = '';
-            
-            // Simulate bot response delay
-            setTimeout(() => {
-                const response = generateBotResponse(message);
-                addMessage(response, 'bot');
-            }, 500);
-        }
-
-        function addMessage(text, sender) {
+        function addMessage(message, type) {
             const messagesContainer = document.getElementById('chatbotMessages');
             const messageDiv = document.createElement('div');
-            messageDiv.className = `message ${sender}`;
-            messageDiv.innerHTML = `<div class="message-text">${text}</div>`;
+            messageDiv.className = `chatbot-message ${type}`;
+            messageDiv.innerHTML = `<div class="message-text">${message}</div>`;
             messagesContainer.appendChild(messageDiv);
-            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+            messagesContainer.scrollTop = messagesContainer.scrollHeight; // Auto-scroll to bottom
         }
 
-        function generateBotResponse(userMessage) {
-            const message = userMessage.toLowerCase();
-            
+        function getBotResponse(message) {
+            message = message.toLowerCase();
             if (message.includes('hello') || message.includes('hi') || message.includes('hey')) {
                 return sampleResponses.greeting;
             } else if (message.includes('about') || message.includes('who are you')) {
@@ -2256,6 +2235,22 @@ This timeless story, brought to life on stage, celebrates the courage, devotion,
             } else {
                 return sampleResponses.default;
             }
+        }
+
+        function sendChatbotMessage() {
+            const input = document.getElementById('chatbotInput');
+            const message = input.value.trim();
+            if (!message) return;
+
+            // Add user message
+            addMessage(message, 'user');
+            input.value = '';
+
+            // Get and add bot response after a short delay
+            setTimeout(() => {
+                const botResponse = getBotResponse(message);
+                addMessage(botResponse, 'bot');
+            }, 500);
         }
 
         function handleKeyPress(event) {
