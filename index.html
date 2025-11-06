@@ -4,8 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yooo Pahad Foundation - Empowering Hills, Hearts, and Humanity</title>
-    <!-- RAZORPAY PAYMENT GATEWAY -->
-    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
     <style>
         * {
             margin: 0;
@@ -907,250 +905,6 @@
             font-weight: 700;
         }
 
-        /* ========== DONATION MODAL STYLES ========== */
-        .donate-modal {
-            display: none;
-            position: fixed;
-            z-index: 1500;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.6);
-            overflow: auto;
-        }
-
-        .donate-modal-content {
-            background: var(--white);
-            margin: 5% auto;
-            padding: 2.5rem;
-            width: 90%;
-            max-width: 500px;
-            border-radius: 16px;
-            box-shadow: 0 20px 60px rgba(15, 31, 63, 0.2);
-            animation: slideDown 0.3s ease-out;
-        }
-
-        @keyframes slideDown {
-            from {
-                transform: translateY(-50px);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-
-        .donate-modal-close {
-            float: right;
-            font-size: 1.8rem;
-            font-weight: bold;
-            color: var(--navy-dark);
-            cursor: pointer;
-            border: none;
-            background: transparent;
-            transition: all 0.2s;
-            width: 30px;
-            height: 30px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .donate-modal-close:hover {
-            color: var(--teal);
-            transform: scale(1.2);
-        }
-
-        .donate-title {
-            color: var(--navy-dark);
-            font-size: 2rem;
-            font-weight: 900;
-            margin-bottom: 0.5rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            clear: both;
-        }
-
-        .donate-subtitle {
-            color: var(--text-gray);
-            font-size: 0.95rem;
-            margin-bottom: 2rem;
-            font-weight: 400;
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-label {
-            display: block;
-            color: var(--navy-dark);
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            font-size: 0.95rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .form-input,
-        .form-select {
-            width: 100%;
-            padding: 0.9rem 1rem;
-            border: 1px solid #E5E7EB;
-            border-radius: 8px;
-            font-size: 0.95rem;
-            font-family: 'Inter', sans-serif;
-            transition: all 0.3s;
-            color: var(--text-dark);
-        }
-
-        .form-input:focus,
-        .form-select:focus {
-            outline: none;
-            border-color: var(--teal);
-            box-shadow: 0 0 0 3px rgba(0, 217, 255, 0.1);
-        }
-
-        .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-        }
-
-        .form-hint {
-            font-size: 0.8rem;
-            color: var(--text-gray);
-            margin-top: 0.3rem;
-            font-weight: 400;
-        }
-
-        .donate-btn {
-            width: 100%;
-            padding: 1rem;
-            background: linear-gradient(135deg, var(--teal), var(--electric-teal));
-            color: var(--navy-dark);
-            border: none;
-            border-radius: 8px;
-            font-size: 1rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            cursor: pointer;
-            transition: all 0.3s;
-            box-shadow: 0 10px 30px rgba(0, 217, 255, 0.2);
-        }
-
-        .donate-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 45px rgba(0, 217, 255, 0.3);
-        }
-
-        .donate-btn:active {
-            transform: translateY(-1px);
-        }
-
-        /* ========== THANK YOU MODAL STYLES ========== */
-        .thank-you-modal {
-            position: fixed;
-            z-index: 1500;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.6);
-            display: flex !important;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .thank-you-content {
-            background: var(--white);
-            padding: 2.5rem;
-            max-width: 450px;
-            border-radius: 16px;
-            box-shadow: 0 20px 60px rgba(15, 31, 63, 0.2);
-            text-align: center;
-            animation: popIn 0.4s ease-out;
-        }
-
-        @keyframes popIn {
-            from {
-                transform: scale(0.9);
-                opacity: 0;
-            }
-            to {
-                transform: scale(1);
-                opacity: 1;
-            }
-        }
-
-        .thank-you-icon {
-            font-size: 4rem;
-            margin-bottom: 1rem;
-        }
-
-        .thank-you-title {
-            color: var(--navy-dark);
-            font-size: 1.8rem;
-            font-weight: 900;
-            margin-bottom: 0.5rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .thank-you-text {
-            color: var(--text-gray);
-            font-size: 0.95rem;
-            margin-bottom: 1.5rem;
-            font-weight: 400;
-        }
-
-        .thank-you-details {
-            background: var(--off-white);
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin-bottom: 1.5rem;
-            text-align: left;
-        }
-
-        .thank-you-detail-row {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 0.8rem;
-            font-size: 0.95rem;
-        }
-
-        .thank-you-detail-label {
-            font-weight: 700;
-            color: var(--navy-dark);
-        }
-
-        .thank-you-detail-value {
-            color: var(--teal);
-            font-weight: 600;
-        }
-
-        .thank-you-close {
-            padding: 0.9rem 2rem;
-            background: var(--teal);
-            color: var(--navy-dark);
-            border: none;
-            border-radius: 8px;
-            font-size: 0.95rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .thank-you-close:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(0, 217, 255, 0.2);
-        }
-
         /* Join Section */
         .join-section {
             background: linear-gradient(135deg, var(--navy) 0%, var(--navy-dark) 100%);
@@ -1499,10 +1253,6 @@
             .videos-grid {
                 grid-template-columns: 1fr;
             }
-
-            .form-row {
-                grid-template-columns: 1fr;
-            }
         }
 
         /* ==================== END CHATBOT STYLES ==================== */
@@ -1651,15 +1401,6 @@
                 width: 300px;
                 height: 450px;
             }
-
-            .donate-modal-content {
-                width: 95%;
-                padding: 1.8rem;
-            }
-
-            .form-row {
-                grid-template-columns: 1fr;
-            }
         }
 
         @media (max-width: 480px) {
@@ -1701,14 +1442,11 @@
             <li><a href="#achievements">Achievements</a></li>
             <li><a href="#gallery">Gallery</a></li>
             <li><a href="#videos">Videos</a></li>
-            <li><a href="#" onclick="openDonateModal(); return false;" style="color:#00E5FF;font-weight:700">💰 Donate</a></li>
             <li><a href="#join">Join Us</a></li>
         </ul>
     </nav>
 
-    <!-- [ALL YOUR ORIGINAL SECTIONS - HERO, STATS, ABOUT, TEAM, FOUNDERS, KEY ROLES, ACTIVE MEMBERS, MISSION QUOTE, FOCUS, ACHIEVEMENTS, GALLERY, VIDEOS, JOIN, FOOTER - REMAIN EXACTLY AS THEY WERE] -->
-    
-    <!-- HERO SECTION -->
+    <!-- HERO SECTION - MODERN MINIMALIST -->
     <section class="hero">
         <div class="hero-content">
             <h1>Empowering Hills, Hearts, and Humanity</h1>
@@ -1716,7 +1454,7 @@
             <div class="hero-tagline">🏔️ Building Futures, One Smile at a Time 🏔️</div>
             <div class="cta-buttons">
                 <a href="#join" class="btn btn-primary">Join Our Movement</a>
-                <a href="#" onclick="openDonateModal(); return false;" class="btn btn-secondary">Donate Now</a>
+                <a href="#donate" class="btn btn-secondary">Donate Now</a>
                 <a href="#volunteer" class="btn btn-secondary">Volunteer</a>
             </div>
         </div>
@@ -1758,7 +1496,221 @@
         </div>
     </section>
 
-    <!-- [ALL YOUR TEAM, FOUNDERS, KEY ROLES, ACTIVE MEMBERS SECTIONS GO HERE - UNCHANGED] -->
+    <!-- OUR TEAM Section -->
+    <section class="section" id="team">
+        <h2 class="section-title green-title">Our Team</h2>
+        <p class="section-subtitle">Meet the passionate individuals driving change in the mountains</p>
+        
+        <div class="members-grid">
+            <div class="member-card">
+                <img src="./images/team-dr-santokh-singh-bisht.jpg" alt="Dr. Santokh Singh Bisht">
+                <div class="member-info">
+                    <div class="member-name">Dr. Santokh Singh Bisht</div>
+                    <div class="member-role">Founder</div>
+                </div>
+            </div>
+
+            <div class="member-card">
+                <img src="./images/team-sagar-sonker.jpg" alt="Sagar Sonker">
+                <div class="member-info">
+                    <div class="member-name">Sagar Sonker</div>
+                    <div class="member-role">Secretary</div>
+                </div>
+            </div>
+
+            <div class="member-card">
+                <img src="./images/team-deepak-puls.jpg" alt="Deepak Puls">
+                <div class="member-info">
+                    <div class="member-name">Deepak Puls</div>
+                    <div class="member-role">Vice President</div>
+                </div>
+            </div>
+
+            <div class="member-card">
+                <img src="./images/team-deepa-bisht.jpg" alt="Deepa Bisht">
+                <div class="member-info">
+                    <div class="member-name">Deepa Bisht</div>
+                    <div class="member-role">Female Vice President</div>
+                </div>
+            </div>
+
+            <div class="member-card">
+                <img src="./images/team-neeraj-bisht.jpg" alt="Neeraj Bisht">
+                <div class="member-info">
+                    <div class="member-name">Neeraj Bisht</div>
+                    <div class="member-role">Treasurer</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOUNDING MEMBERS Section -->
+    <section class="section" id="founders">
+        <h2 class="section-title green-title">Founding Members</h2>
+        <p class="section-subtitle">The dreamers and doers who laid the foundation</p>
+        
+        <div class="members-grid">
+            <div class="member-card">
+                <img src="./images/founding-jitendar-martoliya.jpg" alt="Jitendar Martoliya">
+                <div class="member-info">
+                    <div class="member-name">Jitendar Martoliya</div>
+                    <div class="member-role">Founding Member</div>
+                </div>
+            </div>
+
+            <div class="member-card">
+                <img src="./images/founding-arjun-bohara.jpg" alt="Arjun Bohara">
+                <div class="member-info">
+                    <div class="member-name">Arjun Bohara</div>
+                    <div class="member-role">Founding Member</div>
+                </div>
+            </div>
+
+            <div class="member-card">
+                <img src="./images/founding-lokesh-bisht.jpg" alt="Lokesh Bisht">
+                <div class="member-info">
+                    <div class="member-name">Lokesh Bisht</div>
+                    <div class="member-role">Founding Member</div>
+                </div>
+            </div>
+
+            <div class="member-card">
+                <img src="./images/founding-deepak-joshi.jpg" alt="Deepak Joshi">
+                <div class="member-info">
+                    <div class="member-name">Deepak Joshi</div>
+                    <div class="member-role">Founding Member</div>
+                </div>
+            </div>
+
+            <div class="member-card">
+                <img src="./images/founding-abhishek-tiwari.jpg" alt="Abhishek Tiwari">
+                <div class="member-info">
+                    <div class="member-name">Abhishek Tiwari</div>
+                    <div class="member-role">Founding Member</div>
+                </div>
+            </div>
+
+            <div class="member-card">
+                <img src="./images/founding-dinesh-pandey.jpg" alt="Dinesh Pandey">
+                <div class="member-info">
+                    <div class="member-name">Dinesh Pandey</div>
+                    <div class="member-role">Founding Member</div>
+                </div>
+            </div>
+
+            <div class="member-card">
+                <img src="./images/founding-shiva-bisht.jpg" alt="Shiva Bisht">
+                <div class="member-info">
+                    <div class="member-name">Shiva Bisht</div>
+                    <div class="member-role">Joint Secretary (Founding Member)</div>
+                </div>
+            </div>
+
+            <div class="member-card">
+                <img src="./images/founding-deepti-bora.jpg" alt="Deepti Bora">
+                <div class="member-info">
+                    <div class="member-name">Deepti Bora</div>
+                    <div class="member-role">Media Relations Manager (Founding Member)</div>
+                </div>
+            </div>
+
+            <div class="member-card">
+                <img src="./images/founding-chetan-mehra.jpg" alt="Chetan Mehra">
+                <div class="member-info">
+                    <div class="member-name">Chetan Mehra</div>
+                    <div class="member-role">Technical Consultant (Founding Member)</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- KEY ROLES Section -->
+    <section class="section" id="key-roles">
+        <h2 class="section-title green-title">Key Roles</h2>
+        <p class="section-subtitle">Leadership and specialized expertise</p>
+        
+        <div class="members-grid">
+            <div class="member-card">
+                <img src="./images/key-role-deepak-thapa.jpg" alt="Deepak Thapa">
+                <div class="member-info">
+                    <div class="member-name">Deepak Thapa</div>
+                    <div class="member-role">Head of Photography / Videography</div>
+                </div>
+            </div>
+
+            <div class="member-card">
+                <img src="./images/key-role-deepak-bisht.jpg" alt="Deepak Bisht">
+                <div class="member-info">
+                    <div class="member-name">Deepak Bisht</div>
+                    <div class="member-role">Fund Manager (CEO)</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ACTIVE MEMBERS Section -->
+    <section class="section" id="active-members">
+        <h2 class="section-title green-title">Active Members</h2>
+        <p class="section-subtitle">Dedicated team members contributing to our mission</p>
+        
+        <div class="members-grid">
+            <div class="member-card">
+                <img src="./images/active-himanshu-bisht.jpg" alt="Himanshu Bisht">
+                <div class="member-info">
+                    <div class="member-name">Himanshu Bisht</div>
+                    <div class="member-role">Active Member</div>
+                </div>
+            </div>
+
+            <div class="member-card">
+                <img src="./images/active-amit-vidhyarthi.jpg" alt="Amit Vidhyarthi">
+                <div class="member-info">
+                    <div class="member-name">Amit Vidhyarthi</div>
+                    <div class="member-role">Active Member</div>
+                </div>
+            </div>
+
+            <div class="member-card">
+                <img src="./images/active-chandar-kant-joshi.jpg" alt="Chandar Kant Joshi">
+                <div class="member-info">
+                    <div class="member-name">Chandar Kant Joshi</div>
+                    <div class="member-role">Active Member</div>
+                </div>
+            </div>
+
+            <div class="member-card">
+                <img src="./images/active-manoj-kumar.jpg" alt="Manoj Kumar">
+                <div class="member-info">
+                    <div class="member-name">Manoj Kumar</div>
+                    <div class="member-role">Active Member</div>
+                </div>
+            </div>
+
+            <div class="member-card">
+                <img src="./images/active-aarav.jpg" alt="Aarav">
+                <div class="member-info">
+                    <div class="member-name">Aarav</div>
+                    <div class="member-role">Active Member</div>
+                </div>
+            </div>
+
+            <div class="member-card">
+                <img src="./images/active-vipul-bisht.jpg" alt="Vipul Bisht">
+                <div class="member-info">
+                    <div class="member-name">Vipul Bisht (Bobby)</div>
+                    <div class="member-role">Active Manager</div>
+                </div>
+            </div>
+
+            <div class="member-card">
+                <img src="./images/active-pankaj-gadhiya.jpg" alt="Pankaj Gadhiya">
+                <div class="member-info">
+                    <div class="member-name">Pankaj Gadhiya</div>
+                    <div class="member-role">Active Member</div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Mission Quote -->
     <section class="mission-quote">
@@ -1779,51 +1731,61 @@
                 <h3>Education</h3>
                 <p>Empowering young minds with hilltop learning and access to quality education for every child in our communities.</p>
             </div>
+
             <div class="focus-card">
                 <span class="focus-icon">🌾</span>
                 <h3>Agriculture</h3>
                 <p>Eco-friendly farming revives lands and livelihoods, bringing sustainable prosperity back to our mountain villages.</p>
             </div>
+
             <div class="focus-card">
                 <span class="focus-icon">🌿</span>
                 <h3>Environment</h3>
                 <p>Preserving nature's gifts through awareness and action, protecting the pristine beauty of our Himalayan home.</p>
             </div>
+
             <div class="focus-card">
                 <span class="focus-icon">🏞️</span>
                 <h3>Tourism</h3>
                 <p>Community-powered tourism brings sustainable growth while honoring our heritage and natural wonders.</p>
             </div>
+
             <div class="focus-card">
                 <span class="focus-icon">🎭</span>
                 <h3>Art & Culture</h3>
                 <p>Festivals and workshops celebrate our rich heritage, keeping traditions alive for future generations.</p>
             </div>
+
             <div class="focus-card">
                 <span class="focus-icon">🎨</span>
                 <h3>Inclusive Child Development</h3>
                 <p>Special children and their peers shine together in joyful clinics, where every child belongs and thrives.</p>
             </div>
+
             <div class="focus-card">
                 <span class="focus-icon">🛡️</span>
                 <h3>Disaster Management</h3>
                 <p>Preparedness saves lives—neighbors become heroes through training and community resilience programs.</p>
             </div>
+
             <div class="focus-card">
                 <span class="focus-icon">👴</span>
                 <h3>Elderly Care</h3>
                 <p>Warmth and wisdom shared across generations, honoring our elders with dignity and compassion.</p>
             </div>
+
             <div class="focus-card">
                 <span class="focus-icon">⚕️</span>
                 <h3>Health & Welfare</h3>
                 <p>Free clinics and yoga retreats nurture hill families with holistic healthcare and wellness programs.</p>
             </div>
+
             <div class="focus-card">
                 <span class="focus-icon">✊</span>
                 <h3>Labour & Human Rights</h3>
                 <p>Advocacy ensures fair wages and empowerment for all workers, protecting dignity and justice.</p>
             </div>
+
             <div class="focus-card">
                 <span class="focus-icon">💼</span>
                 <h3>Youth & Employment</h3>
@@ -1842,22 +1804,27 @@
                 <h3>🩸 Blood Donation Drives</h3>
                 <p>Youth-led camps saving lives across our communities, bringing hope to those in need through the gift of life.</p>
             </div>
+
             <div class="timeline-item">
                 <h3>🎉 Janmashtami Mahotsav</h3>
                 <p>A festival of joy, devotion, and dance—bringing our community together in celebration of faith and culture.</p>
             </div>
+
             <div class="timeline-item">
                 <h3>🎭 Kumaoni Digital Ramleela</h3>
                 <p>Pioneering online tradition during challenging times, keeping our cultural flame burning bright in the digital age.</p>
             </div>
+
             <div class="timeline-item">
                 <h3>🏘️ Village Outreach Programs</h3>
                 <p>Cleanliness drives, compassion initiatives, and education programs reaching remote villages with care and commitment.</p>
             </div>
+
             <div class="timeline-item">
                 <h3>🌱 Sustainable Agriculture Workshops</h3>
                 <p>Empowering farmers with eco-friendly techniques, reviving traditional wisdom with modern sustainability.</p>
             </div>
+
             <div class="timeline-item">
                 <h3>🎪 Community Festivals & Cultural Events</h3>
                 <p>Year-round celebrations bringing laughter, art, music, and unity to every corner of our hills.</p>
@@ -1871,9 +1838,10 @@
         <p class="section-subtitle">Festivals, community service, and creating lasting impact together</p>
         
         <div class="gallery-grid">
+            <!-- Blood Donation Images -->
             <div class="gallery-item">
                 <img src="./images/blood-donation-1.jpeg" alt="Blood Donation Drive - Community Hero">
-                <div class="gallery-label">Blood Donation Drive</div>
+                <div class="gallery-label">Blood Donation Drive - Community Hero</div>
             </div>
             <div class="gallery-item">
                 <img src="./images/blood-donation-2.jpeg" alt="Blood Donation - Medical Team">
@@ -1881,19 +1849,21 @@
             </div>
             <div class="gallery-item">
                 <img src="./images/blood-donation-3.jpeg" alt="Blood Donation - Young Volunteer">
-                <div class="gallery-label">Blood Donation - Volunteer</div>
+                <div class="gallery-label">Blood Donation - Young Volunteer</div>
             </div>
             <div class="gallery-item">
                 <img src="./images/blood-donation-4.jpeg" alt="Blood Donation - Saving Lives">
-                <div class="gallery-label">Saving Lives</div>
+                <div class="gallery-label">Blood Donation - Saving Lives</div>
             </div>
+            
+            <!-- Janmashtami Mahotsav Images -->
             <div class="gallery-item">
                 <img src="./images/janmashtami-1.jpeg" alt="Janmashtami Mahotsav - Team Photo">
-                <div class="gallery-label">Janmashtami Mahotsav</div>
+                <div class="gallery-label">Janmashtami Mahotsav - Team Photo</div>
             </div>
             <div class="gallery-item">
                 <img src="./images/janmashtami-2.jpeg" alt="Janmashtami Celebration">
-                <div class="gallery-label">Celebration</div>
+                <div class="gallery-label">Janmashtami Celebration</div>
             </div>
             <div class="gallery-item">
                 <img src="./images/janmashtami-3.jpeg" alt="Community Gathering">
@@ -1901,23 +1871,27 @@
             </div>
             <div class="gallery-item">
                 <img src="./images/janmashtami-4.jpeg" alt="Festival Preparations">
-                <div class="gallery-label">Festival Prep</div>
+                <div class="gallery-label">Festival Preparations</div>
             </div>
+            
+            <!-- Environment & Tourism -->
             <div class="gallery-item">
                 <img src="./images/plantation.jpeg" alt="Tree Plantation Drive">
-                <div class="gallery-label">Tree Plantation</div>
+                <div class="gallery-label">Tree Plantation Drive</div>
             </div>
             <div class="gallery-item">
                 <img src="./images/tourism-1.jpeg" alt="Mountain Heritage Tourism">
-                <div class="gallery-label">Heritage Tourism</div>
+                <div class="gallery-label">Mountain Heritage Tourism</div>
             </div>
+            
+            <!-- Elderly Care -->
             <div class="gallery-item">
                 <img src="./images/elderly-care-1.jpeg" alt="Elderly Care Program">
-                <div class="gallery-label">Elderly Care</div>
+                <div class="gallery-label">Elderly Care Program</div>
             </div>
             <div class="gallery-item">
                 <img src="./images/elderly-care-2.jpeg" alt="Senior Citizens Outreach">
-                <div class="gallery-label">Senior Outreach</div>
+                <div class="gallery-label">Senior Citizens Outreach</div>
             </div>
         </div>
     </section>
@@ -1925,9 +1899,10 @@
     <!-- Videos Section -->
     <section class="section" id="videos">
         <h2 class="section-title">Our Video Stories</h2>
-        <p class="section-subtitle">Watch our community impact in action</p>
+        <p class="section-subtitle">Watch our community impact in action - documentaries, testimonials, and behind-the-scenes moments</p>
         
         <div class="videos-grid">
+            <!-- Blood Donation Drive Documentary -->
             <div class="video-card" onclick="openVideoModal('6JtaPCtjFF4', 'Rajula Malushahi The Story')">
                 <div class="video-thumbnail">
                     <img src="https://img.youtube.com/vi/6JtaPCtjFF4/sddefault.jpg" alt="Rajula Malushahi The Story">
@@ -1936,10 +1911,14 @@
                 </div>
                 <div class="video-info">
                     <h3>Rajula Malushahi The Story</h3>
-                    <p>A breathtaking act bringing the legendary love story of Rajula and Malushahi to life.</p>
+                    <p>Performed by Santokh Bisht, Bhawana Kandpal,@ and Deepak Puls, and choreographed by Deepak Puls, this breathtaking act brought the legendary love story of Rajula and Malushahi to life on the grand stage of YUCA 2025. ✨
+The tale of Rajula and Malushahi tells of King Dola Shah of Bairath, who prayed to Lord Shiva for a child and promised to marry his son to a friend’s daughter. The boy Malushahi and the girl Rajula were symbolically married as children, but fate separated them. Years later, Rajula defied all odds, traveling through mountains and rivers to find her beloved Malushahi. Their love, tested by time, betrayal, and destiny, became an everlasting symbol of Uttarakhand’s cultural spirit. 🌄❤️
+This timeless story, brought to life on stage, celebrates the courage, devotion, and emotional depth of Uttarakhand’s heritage. 🌸🎶</p>
                     <span class="video-tag">Cultural</span>
                 </div>
             </div>
+
+            <!-- Janmashtami Festival Celebration -->
             <div class="video-card" onclick="openVideoModal('Jeyl4rbmQLw', 'Kumaoni Ramleela')">
                 <div class="video-thumbnail">
                     <img src="https://img.youtube.com/vi/Jeyl4rbmQLw/sddefault.jpg" alt="Kumaoni Ramleela">
@@ -1948,10 +1927,13 @@
                 </div>
                 <div class="video-info">
                     <h3>Kumaoni Ramleela</h3>
-                    <p>Keeping ancient traditions alive through digital broadcasting.</p>
+                    <p>ये प्रचार वर्षो से जीवित चली आ रही प्रथा को जीवित रखने के लिए किया गया है, आप ये प्रसारण सायं को लोकल चैनल या यूट्यूब के माध्यम से देख सकते है इस के लिए आपको हमे चैनल को सब्सक्राइब भी जरूर कीजियेगा , 
+                        आप के प्रेम से से ही हम इस कार्यक्रम को समस्त जनों तक पंहुचा सकते है, धन्यवाद</p>
                     <span class="video-tag">Festival</span>
                 </div>
             </div>
+
+            <!-- Community Stories - Elderly Care -->
             <div class="video-card" onclick="openVideoModal('PCgdTh5xy1Y', 'Jodi First Class')">
                 <div class="video-thumbnail">
                     <img src="https://img.youtube.com/vi/PCgdTh5xy1Y/sddefault.jpg" alt="Jodi First Class">
@@ -1960,10 +1942,12 @@
                 </div>
                 <div class="video-info">
                     <h3>Jodi First Class</h3>
-                    <p>Latest Uttarakhand Song 2022</p>
+                    <p>Presenting you the Official Video of the Latest Uttrakahndi  Song 2022 "Jodi First Class"</p>
                     <span class="video-tag">Entertainment</span>
                 </div>
             </div>
+
+            <!-- Environmental Initiative - Tree Plantation -->
             <div class="video-card" onclick="openVideoModal('3up0nW4tyvM', 'Nanda Devi Mahotsav')">
                 <div class="video-thumbnail">
                     <img src="https://img.youtube.com/vi/3up0nW4tyvM/sddefault.jpg" alt="Nanda Devi Mahotsav">
@@ -1976,6 +1960,8 @@
                     <span class="video-tag">Devotion</span>
                 </div>
             </div>
+
+            <!-- Education Initiative -->
             <div class="video-card" onclick="openVideoModal('nDsIy6kRhms', 'Lehra do')">
                 <div class="video-thumbnail">
                     <img src="https://img.youtube.com/vi/nDsIy6kRhms/sddefault.jpg" alt="Lehra do">
@@ -1984,10 +1970,12 @@
                 </div>
                 <div class="video-info">
                     <h3>Lehra Do</h3>
-                    <p>Inspiring entertainment content</p>
+                    <p>Lehra Do - Full Video | 83 | Ranveer Singh, Kabir Khan | Pritam, Arijit Singh, Kausar Munir</p>
                     <span class="video-tag">Entertainment</span>
                 </div>
             </div>
+
+            <!-- Founder's Message -->
             <div class="video-card" onclick="openVideoModal('9iIX4PBplAY', 'Motivation')">
                 <div class="video-thumbnail">
                     <img src="https://img.youtube.com/vi/9iIX4PBplAY/sddefault.jpg" alt="Motivation">
@@ -1996,7 +1984,8 @@
                 </div>
                 <div class="video-info">
                     <h3>Motivation</h3>
-                    <p>Kar Har Maidaan Fateh - Inspiring message</p>
+                    <p>Presenting “Kar Har Maidaan Fateh” Full Video Song, a song about hope and courage. Based on the life of Bollywood star Sanjay Dutt, and directed by Rajkumar Hirani,  A Vinod Chopra Films and Rajkumar Hirani Films production, 
+                        presented by Fox Star Studios, the movie stars Ranbir Kapoor, Paresh Rawal and Manisha Koirala in the lead. </p>
                     <span class="video-tag">Entertainment</span>
                 </div>
             </div>
@@ -2020,84 +2009,6 @@
                 </iframe>
             </div>
             <div id="videoModalTitle" class="video-modal-title"></div>
-        </div>
-    </div>
-
-    <!-- ========== DONATION MODAL ========== -->
-    <div id="donateModal" class="donate-modal">
-        <div class="donate-modal-content">
-            <button class="donate-modal-close" onclick="closeDonateModal()">✕</button>
-            <h2 class="donate-title">💰 Support Our Mission</h2>
-            <p class="donate-subtitle">Your donation empowers the hills. All contributions 80G eligible!</p>
-            <form id="donationForm" onsubmit="submitDonation(event)">
-                <div class="form-group">
-                    <label class="form-label">Full Name *</label>
-                    <input type="text" class="form-input" id="donorName" required placeholder="Your full name">
-                </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label class="form-label">Email Address *</label>
-                        <input type="email" class="form-input" id="donorEmail" required placeholder="your@email.com">
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label">Phone Number *</label>
-                        <input type="tel" class="form-input" id="donorPhone" required placeholder="+91 98765 43210">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="form-label">Address (for 80G receipt) *</label>
-                    <input type="text" class="form-input" id="donorAddress" required placeholder="Full address">
-                </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label class="form-label">PAN Number (optional)</label>
-                        <input type="text" class="form-input" id="donorPAN" placeholder="AAABP1234H" maxlength="10">
-                        <p class="form-hint">Required for 80G certificate</p>
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label">Donation Amount (₹) *</label>
-                        <select class="form-select" id="donationAmount" required>
-                            <option value="">Select</option>
-                            <option value="500">₹ 500</option>
-                            <option value="1000">₹ 1,000</option>
-                            <option value="2500">₹ 2,500</option>
-                            <option value="5000">₹ 5,000</option>
-                            <option value="10000">₹ 10,000</option>
-                            <option value="custom">Custom</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="form-group" id="customAmountGroup" style="display:none;">
-                    <label class="form-label">Custom Amount (₹) *</label>
-                    <input type="number" class="form-input" id="customAmount" min="100" placeholder="Enter amount">
-                </div>
-                <button type="submit" class="donate-btn" id="donateSubmitBtn">Proceed to Payment</button>
-                <p style="font-size:0.85rem;color:#6B7280;margin-top:1rem;text-align:center;">Powered by Razorpay | Your data is secure</p>
-            </form>
-        </div>
-    </div>
-
-    <!-- THANK YOU MODAL -->
-    <div id="thankYouModal" class="thank-you-modal" style="display:none;">
-        <div class="thank-you-content">
-            <div class="thank-you-icon">🎉</div>
-            <h2 class="thank-you-title">Thank You for Your Support!</h2>
-            <p class="thank-you-text">Donation received. 80G receipt will be sent to your email.</p>
-            <div class="thank-you-details">
-                <div class="thank-you-detail-row">
-                    <span class="thank-you-detail-label">Name:</span>
-                    <span class="thank-you-detail-value" id="thankYouName">-</span>
-                </div>
-                <div class="thank-you-detail-row">
-                    <span class="thank-you-detail-label">Amount:</span>
-                    <span class="thank-you-detail-value" id="thankYouAmount">-</span>
-                </div>
-                <div class="thank-you-detail-row">
-                    <span class="thank-you-detail-label">Payment ID:</span>
-                    <span class="thank-you-detail-value" id="thankYouPaymentId">-</span>
-                </div>
-            </div>
-            <button onclick="closeThankYouModal()" class="thank-you-close">Close</button>
         </div>
     </div>
 
@@ -2150,7 +2061,7 @@
 
             <div class="footer-section">
                 <h3>Get Involved</h3>
-                <a href="#" onclick="openDonateModal(); return false;">Donate Now</a>
+                <a href="#donate">Donate Now</a>
                 <a href="#volunteer">Volunteer</a>
                 <a href="#partner">Partner With Us</a>
                 <a href="#events">Upcoming Events</a>
@@ -2197,121 +2108,58 @@
     <!-- ==================== END CHATBOT WIDGET ==================== -->
 
     <script>
-        /* ========== RAZORPAY & GOOGLE SHEETS CONFIG ========== */
-        const RAZORPAY_KEY_ID = 'rzp_test_1OfxjiN3MU8zJ4'; // Change to LIVE KEY before launch!
-        const GOOGLE_SHEETS_WEBHOOK_URL = 'https://api.sheetdb.io/v1/YOUR_SHEET_ID_HERE'; // Change to your endpoint!
-
-        /* ========== DONATION MODAL FUNCTIONS ========== */
-        function openDonateModal() {
-            document.getElementById('donateModal').style.display = 'block';
-            document.body.style.overflow = 'hidden';
+        // Mobile menu toggle
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
         }
 
-        function closeDonateModal() {
-            document.getElementById('donateModal').style.display = 'none';
-            document.body.style.overflow = 'auto';
-            document.getElementById('donationForm').reset();
-            document.getElementById('customAmountGroup').style.display = 'none';
-        }
-
-        document.getElementById('donationAmount')?.addEventListener('change', function() {
-            if (this.value === 'custom') {
-                document.getElementById('customAmountGroup').style.display = 'block';
-                document.getElementById('customAmount').focus();
-            } else {
-                document.getElementById('customAmountGroup').style.display = 'none';
-            }
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('navLinks').classList.remove('active');
+            });
         });
 
-        function submitDonation(event) {
-            event.preventDefault();
-            const donorName = document.getElementById('donorName').value;
-            const donorEmail = document.getElementById('donorEmail').value;
-            const donorPhone = document.getElementById('donorPhone').value;
-            const donorAddress = document.getElementById('donorAddress').value;
-            const donorPAN = document.getElementById('donorPAN').value || 'N/A';
-            let donationAmount = document.getElementById('donationAmount').value;
-            if (donationAmount === 'custom') {
-                donationAmount = document.getElementById('customAmount').value;
-            }
-            if (!donationAmount || donationAmount < 100) {
-                alert('Please enter a valid donation amount (minimum ₹100)');
-                return;
-            }
-            sessionStorage.setItem('donationData', JSON.stringify({
-                name: donorName, email: donorEmail, phone: donorPhone,
-                address: donorAddress, pan: donorPAN, amount: donationAmount
-            }));
-            initiateRazorpayPayment(donationAmount, donorName, donorEmail);
-        }
-
-        function initiateRazorpayPayment(amount, name, email) {
-            const options = {
-                key: RAZORPAY_KEY_ID,
-                amount: amount * 100,
-                currency: 'INR',
-                name: 'Yooo Pahad Foundation',
-                description: 'Donation',
-                image: '',
-                prefill: {name: name, email: email},
-                theme: {color: '#00D9FF'},
-                handler: function(response) { onPaymentSuccess(response); },
-                modal: { ondismiss: function() { alert('Payment cancelled. Try again.'); } }
-            };
-            const rzp = new Razorpay(options);
-            rzp.open();
-        }
-
-        function onPaymentSuccess(razorpayResponse) {
-            const donationData = JSON.parse(sessionStorage.getItem('donationData'));
-            const sheetData = {
-                data: [{
-                    timestamp: new Date().toLocaleString('en-IN'),
-                    donor_name: donationData.name,
-                    donor_email: donationData.email,
-                    donor_phone: donationData.phone,
-                    donor_address: donationData.address,
-                    donor_pan: donationData.pan,
-                    donation_amount: donationData.amount,
-                    payment_id: razorpayResponse.razorpay_payment_id,
-                    payment_status: 'SUCCESS',
-                    '80g_eligible': donationData.pan !== 'N/A' ? 'YES' : 'PENDING'
-                }]
-            };
-            sendToGoogleSheets(sheetData, donationData, razorpayResponse.razorpay_payment_id);
-        }
-
-        function sendToGoogleSheets(sheetData, donationData, paymentId) {
-            fetch(GOOGLE_SHEETS_WEBHOOK_URL, {
-                method: 'POST',
-                headers: {'Content-Type': 'application/json'},
-                body: JSON.stringify(sheetData.data)
-            })
-            .then(response => response.json())
-            .then(data => {
-                showThankYouModal(donationData, paymentId);
-                sessionStorage.removeItem('donationData');
-            })
-            .catch(error => {
-                console.error('Sheet error:', error);
-                showThankYouModal(donationData, paymentId);
+        // Smooth scroll behavior
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offsetTop = target.offsetTop - 80;
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
             });
-        }
+        });
 
-        function showThankYouModal(donationData, paymentId) {
-            closeDonateModal();
-            document.getElementById('thankYouName').textContent = donationData.name;
-            document.getElementById('thankYouAmount').textContent = '₹ ' + donationData.amount;
-            document.getElementById('thankYouPaymentId').textContent = paymentId.substring(0, 12) + '...';
-            document.getElementById('thankYouModal').style.display = 'flex';
-        }
+        // Add animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
 
-        function closeThankYouModal() {
-            document.getElementById('thankYouModal').style.display = 'none';
-            document.body.style.overflow = 'auto';
-        }
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
 
-        /* ========== VIDEO MODAL FUNCTIONALITY ========== */
+        // Observe elements for animation
+        document.querySelectorAll('.focus-card, .timeline-item, .gallery-item, .member-card, .video-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'all 0.6s ease-out';
+            observer.observe(el);
+        });
+
+        // ==================== VIDEO MODAL FUNCTIONALITY ====================
         function openVideoModal(videoId, title) {
             const modal = document.getElementById('videoModal');
             const frame = document.getElementById('videoFrame');
@@ -2332,72 +2180,21 @@
             document.body.style.overflow = 'auto';
         }
 
+        // Close modal when pressing Escape
         document.addEventListener('keydown', function(event) {
             if (event.key === 'Escape') {
                 closeVideoModal();
-                closeDonateModal();
             }
         });
 
-        /* ========== MOBILE MENU TOGGLE ========== */
-        function toggleMenu() {
-            const navLinks = document.getElementById('navLinks');
-            navLinks.classList.toggle('active');
-        }
-
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                document.getElementById('navLinks').classList.remove('active');
-            });
-        });
-
-        /* ========== SMOOTH SCROLL ========== */
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                if (this.getAttribute('href') !== '#' && !this.onclick) {
-                    e.preventDefault();
-                    const target = document.querySelector(this.getAttribute('href'));
-                    if (target) {
-                        const offsetTop = target.offsetTop - 80;
-                        window.scrollTo({
-                            top: offsetTop,
-                            behavior: 'smooth'
-                        });
-                    }
-                }
-            });
-        });
-
-        /* ========== INTERSECTION OBSERVER FOR ANIMATIONS ========== */
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.focus-card, .timeline-item, .gallery-item, .member-card, .video-card').forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(20px)';
-            el.style.transition = 'all 0.6s ease-out';
-            observer.observe(el);
-        });
-
-        /* ========== CHATBOT FUNCTIONALITY ========== */
+        // ==================== CHATBOT FUNCTIONALITY ====================
 
         const sampleResponses = {
             greeting: "Hello! Welcome to Yooo Pahad Foundation. How can I help you today?",
             about: "Yooo Pahad Foundation is a vibrant movement transforming hillside communities through compassion and collaboration. We focus on 11 key areas including education, environment, health, and culture.",
             team: "Our team consists of dedicated founders and volunteers from Nainital who are passionate about community development and social impact.",
             volunteer: "We'd love to have you join us! Please reach out to contact@yooopahad.org or visit our 'Get Involved' section to learn more about volunteering opportunities.",
-            donate: "Your donations help us create lasting impact in mountain communities. You can support us through Razorpay. Visit our website for more details.",
+            donate: "Your donations help us create lasting impact in mountain communities. You can support us through various channels. Visit our website for more details.",
             focus: "We work across 11 focus areas: Education, Agriculture, Environment, Tourism, Art & Culture, Inclusive Child Development, Disaster Management, Elderly Care, Health & Welfare, Labour Rights, and Youth Employment.",
             location: "We are based in Nainital, Uttarakhand, India - the beautiful heart of the Himalayas.",
             contact: "You can reach us at contact@yooopahad.org or connect via our social media channels.",
@@ -2417,9 +2214,11 @@
             
             if (!message) return;
             
+            // Add user message
             addMessage(message, 'user');
             input.value = '';
             
+            // Simulate bot response delay
             setTimeout(() => {
                 const response = generateBotResponse(message);
                 addMessage(response, 'bot');
@@ -2465,18 +2264,7 @@
             }
         }
 
-        /* ========== END CHATBOT FUNCTIONALITY ========== */
-        // FIX: Allow Escape key and button to always close Thank You modal
-function closeThankYouModal() {
-    document.getElementById('thankYouModal').style.display = 'none';
-    document.body.style.overflow = 'auto';
-}
-// Escape key closes modal too:
-document.addEventListener('keydown', function(event) {
-    if (event.key === 'Escape') {
-        closeThankYouModal();
-    }
-});
+        // ==================== END CHATBOT FUNCTIONALITY ====================
     </script>
 </body>
 </html>
