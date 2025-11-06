@@ -1,1163 +1,261 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yooo Pahad Foundation - Empowering Hills, Hearts, and Humanity</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --primary-orange: #E67E22;
-            --warm-terracotta: #D35400;
-            --forest-green: #27AE60;
-            --mountain-brown: #8B4513;
-            --sunrise-gold: #F39C12;
-            --sky-blue: #3498DB;
-            --cream: #FDF6E3;
-            --warm-white: #FAF8F3;
-            --text-dark: #2C3E50;
-            --text-gray: #7F8C8D;
-            --shadow: rgba(0, 0, 0, 0.1);
-        }
-
-        body {
-            font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
-            background: var(--warm-white);
-            color: var(--text-dark);
-            overflow-x: hidden;
-            line-height: 1.7;
-        }
-
-        /* Smooth Scroll */
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(253, 246, 227, 0.98);
-            backdrop-filter: blur(10px);
-            padding: 1rem 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 1000;
-            box-shadow: 0 2px 20px var(--shadow);
-            border-bottom: 3px solid var(--primary-orange);
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: var(--primary-orange);
-            letter-spacing: 1px;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .logo::before {
-            content: '🏔️';
-            font-size: 2rem;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2.5rem;
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: var(--text-dark);
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s;
-            position: relative;
-            padding: 0.5rem 0;
-        }
-
-        .nav-links a:hover {
-            color: var(--primary-orange);
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 3px;
-            background: var(--primary-orange);
-            transition: width 0.3s;
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        .mobile-menu {
-            display: none;
-            flex-direction: column;
-            gap: 5px;
-            cursor: pointer;
-        }
-
-        .mobile-menu span {
-            width: 30px;
-            height: 3px;
-            background: var(--primary-orange);
-            border-radius: 2px;
-            transition: all 0.3s;
-        }
-
-        /* Hero Section */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 0 5%;
-            position: relative;
-            margin-top: 70px;
-            background: linear-gradient(135deg, rgba(230, 126, 34, 0.1) 0%, rgba(243, 156, 18, 0.1) 50%, rgba(52, 152, 219, 0.1) 100%);
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: 
-                radial-gradient(circle at 20% 30%, rgba(230, 126, 34, 0.08) 0%, transparent 50%),
-                radial-gradient(circle at 80% 70%, rgba(52, 152, 219, 0.08) 0%, transparent 50%);
-            z-index: -1;
-        }
-
-        .hero-content {
-            max-width: 900px;
-            animation: fadeInUp 1s ease-out;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .hero-content h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1.5rem;
-            color: var(--primary-orange);
-            font-weight: 700;
-            line-height: 1.2;
-        }
-
-        .hero-content p {
-            font-size: 1.3rem;
-            margin-bottom: 2rem;
-            color: var(--text-gray);
-            line-height: 1.8;
-        }
-
-        .hero-tagline {
-            font-size: 1.5rem;
-            color: var(--forest-green);
-            margin: 2rem 0;
-            font-weight: 600;
-            letter-spacing: 1px;
-        }
-
-        .cta-buttons {
-            display: flex;
-            gap: 1.5rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-top: 2rem;
-        }
-
-        .btn {
-            padding: 1rem 2.5rem;
-            border: none;
-            cursor: pointer;
-            font-size: 1.1rem;
-            border-radius: 50px;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
-            font-weight: 600;
-            box-shadow: 0 4px 15px var(--shadow);
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, var(--primary-orange), var(--sunrise-gold));
-            color: white;
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(230, 126, 34, 0.3);
-        }
-
-        .btn-secondary {
-            background: white;
-            color: var(--primary-orange);
-            border: 2px solid var(--primary-orange);
-        }
-
-        .btn-secondary:hover {
-            background: var(--primary-orange);
-            color: white;
-        }
-
-        /* Section */
-        .section {
-            padding: 5rem 5%;
-            position: relative;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.8rem;
-            margin-bottom: 1rem;
-            color: var(--primary-orange);
-            font-weight: 700;
-        }
-
-        .section-subtitle {
-            text-align: center;
-            color: var(--text-gray);
-            margin-bottom: 4rem;
-            font-size: 1.2rem;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        /* Stats Section */
-        .stats {
-            background: linear-gradient(135deg, var(--primary-orange), var(--sunrise-gold));
-            padding: 4rem 5%;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 3rem;
-            text-align: center;
-            box-shadow: 0 10px 40px var(--shadow);
-        }
-
-        .stat-item h2 {
-            font-size: 3.5rem;
-            color: white;
-            margin-bottom: 0.5rem;
-            font-weight: 700;
-        }
-
-        .stat-item p {
-            color: rgba(255, 255, 255, 0.95);
-            font-size: 1.2rem;
-            font-weight: 500;
-        }
-
-        /* About Section */
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            max-width: 1200px;
-            margin: 0 auto;
-            align-items: center;
-        }
-
-        .about-text {
-            font-size: 1.15rem;
-            line-height: 1.9;
-            color: var(--text-dark);
-        }
-
-        .about-text p {
-            margin-bottom: 1.5rem;
-        }
-
-        .about-image {
-            width: 100%;
-            height: 450px;
-            background: linear-gradient(135deg, var(--cream), var(--warm-white));
-            border: 3px solid var(--primary-orange);
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 4rem;
-            box-shadow: 0 10px 40px var(--shadow);
-            transition: all 0.3s;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .about-image:hover {
-            transform: scale(1.02);
-            box-shadow: 0 15px 50px rgba(230, 126, 34, 0.2);
-        }
-
-        .about-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .image-placeholder {
-            background: linear-gradient(135deg, var(--cream), var(--warm-white));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 4rem;
-        }
-
-        /* Mission Quote */
-        .mission-quote {
-            background: linear-gradient(135deg, rgba(39, 174, 96, 0.1), rgba(52, 152, 219, 0.1));
-            padding: 5rem 5%;
-            text-align: center;
-            border-top: 3px solid var(--forest-green);
-            border-bottom: 3px solid var(--sky-blue);
-        }
-
-        .mission-quote blockquote {
-            font-size: 1.8rem;
-            font-style: italic;
-            color: var(--text-dark);
-            max-width: 900px;
-            margin: 0 auto;
-            line-height: 1.7;
-            position: relative;
-            padding: 2rem;
-        }
-
-        .mission-quote blockquote::before {
-            content: '"';
-            font-size: 5rem;
-            color: var(--forest-green);
-            position: absolute;
-            top: -20px;
-            left: -10px;
-            opacity: 0.3;
-        }
-
-        .mission-quote cite {
-            display: block;
-            margin-top: 2rem;
-            color: var(--primary-orange);
-            font-size: 1.2rem;
-            font-style: normal;
-            font-weight: 600;
-        }
-
-        /* Focus Areas Grid */
-        .focus-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .focus-card {
-            background: white;
-            border: 2px solid var(--cream);
-            border-radius: 15px;
-            padding: 2.5rem;
-            transition: all 0.3s ease;
-            position: relative;
-            box-shadow: 0 4px 15px var(--shadow);
-        }
-
-        .focus-card:hover {
-            transform: translateY(-10px);
-            border-color: var(--primary-orange);
-            box-shadow: 0 15px 40px rgba(230, 126, 34, 0.2);
-        }
-
-        .focus-icon {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            display: block;
-        }
-
-        .focus-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: var(--primary-orange);
-            font-weight: 700;
-        }
-
-        .focus-card p {
-            color: var(--text-gray);
-            line-height: 1.8;
-        }
-
-        /* Timeline */
-        .timeline {
-            max-width: 1000px;
-            margin: 0 auto;
-            position: relative;
-        }
-
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 50px;
-            top: 0;
-            bottom: 0;
-            width: 3px;
-            background: linear-gradient(to bottom, var(--primary-orange), var(--sunrise-gold));
-        }
-
-        .timeline-item {
-            background: white;
-            border: 2px solid var(--cream);
-            border-radius: 15px;
-            padding: 2rem 2rem 2rem 5rem;
-            margin-bottom: 2rem;
-            transition: all 0.3s;
-            position: relative;
-            box-shadow: 0 4px 15px var(--shadow);
-        }
-
-        .timeline-item::before {
-            content: '✓';
-            position: absolute;
-            left: 32px;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 40px;
-            height: 40px;
-            background: linear-gradient(135deg, var(--primary-orange), var(--sunrise-gold));
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            font-size: 1.5rem;
-            box-shadow: 0 4px 15px rgba(230, 126, 34, 0.3);
-        }
-
-        .timeline-item:hover {
-            border-color: var(--primary-orange);
-            transform: translateX(10px);
-            box-shadow: 0 8px 30px rgba(230, 126, 34, 0.2);
-        }
-
-        .timeline-item h3 {
-            color: var(--primary-orange);
-            margin-bottom: 0.8rem;
-            font-size: 1.5rem;
-            font-weight: 700;
-        }
-
-        .timeline-item p {
-            color: var(--text-gray);
-            line-height: 1.8;
-        }
-
-        /* Gallery */
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-            max-width: 1400px;
-            margin: 3rem auto 0;
-        }
-
-        .gallery-item {
-            height: 280px;
-            background: white;
-            border: 3px solid var(--cream);
-            border-radius: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 4rem;
-            transition: all 0.3s;
-            cursor: pointer;
-            overflow: hidden;
-            position: relative;
-            box-shadow: 0 4px 15px var(--shadow);
-        }
-
-        .gallery-item::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(45deg, rgba(230, 126, 34, 0.2), transparent);
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-
-        .gallery-item:hover {
-            border-color: var(--primary-orange);
-            transform: scale(1.03);
-            box-shadow: 0 10px 40px rgba(230, 126, 34, 0.3);
-        }
-
-        .gallery-item:hover::after {
-            opacity: 1;
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .gallery-label {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
-            padding: 1.5rem;
-            color: white;
-            font-size: 1.1rem;
-            text-align: center;
-            font-weight: 600;
-            transform: translateY(100%);
-            transition: transform 0.3s;
-        }
-
-        .gallery-item:hover .gallery-label {
-            transform: translateY(0);
-        }
-
-        /* Join Section */
-        .join-section {
-            background: linear-gradient(135deg, rgba(230, 126, 34, 0.05), rgba(243, 156, 18, 0.05));
-            text-align: center;
-            padding: 6rem 5%;
-        }
-
-        .join-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .join-content p {
-            font-size: 1.3rem;
-            color: var(--text-dark);
-            margin-bottom: 2rem;
-            line-height: 1.8;
-        }
-
-        /* Footer */
-        footer {
-            background: linear-gradient(135deg, var(--mountain-brown), var(--warm-terracotta));
-            color: white;
-            padding: 4rem 5% 2rem;
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 3rem;
-            margin-bottom: 3rem;
-        }
-
-        .footer-section h3 {
-            color: var(--sunrise-gold);
-            margin-bottom: 1.5rem;
-            font-size: 1.3rem;
-            font-weight: 700;
-        }
-
-        .footer-section p,
-        .footer-section a {
-            color: rgba(255, 255, 255, 0.9);
-            text-decoration: none;
-            display: block;
-            margin-bottom: 0.8rem;
-            transition: all 0.3s;
-            line-height: 1.7;
-        }
-
-        .footer-section a:hover {
-            color: var(--sunrise-gold);
-            padding-left: 5px;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1.5rem;
-        }
-
-        .social-links a {
-            width: 45px;
-            height: 45px;
-            background: rgba(255, 255, 255, 0.1);
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.3rem;
-            transition: all 0.3s;
-        }
-
-        .social-links a:hover {
-            background: var(--sunrise-gold);
-            border-color: var(--sunrise-gold);
-            transform: translateY(-5px);
-        }
-
-        .footer-bottom {
-            text-align: center;
-            padding-top: 2rem;
-            border-top: 2px solid rgba(255, 255, 255, 0.2);
-            color: rgba(255, 255, 255, 0.9);
-        }
-
-        .footer-tagline {
-            color: var(--sunrise-gold);
-            font-size: 1.3rem;
-            margin-top: 1rem;
-            font-weight: 700;
-            letter-spacing: 1px;
-        }
-
-        /* Decorative Elements */
-        .mountain-divider {
-            width: 100%;
-            height: 80px;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"><path fill="%23E67E22" opacity="0.3" d="M0 120L50 100Q100 80 150 90T250 110L300 120H0Z"/><path fill="%23E67E22" opacity="0.5" d="M300 120L350 100Q400 80 450 90T550 110L600 120H300Z"/><path fill="%23E67E22" d="M600 120L650 100Q700 80 750 90T850 110L900 120H600Z"/></svg>') repeat-x bottom;
-            background-size: 600px 80px;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 968px) {
-            .hero-content h1 {
-                font-size: 2.5rem;
-            }
-
-            .section-title {
-                font-size: 2.2rem;
-            }
-
-            .about-content {
-                grid-template-columns: 1fr;
-            }
-
-            .focus-grid {
-                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            }
-
-            .timeline::before {
-                left: 20px;
-            }
-
-            .timeline-item {
-                padding-left: 4rem;
-            }
-
-            .timeline-item::before {
-                left: 2px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            nav {
-                padding: 1rem 4%;
-            }
-
-            .logo {
-                font-size: 1.2rem;
-            }
-
-            .nav-links {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                background: var(--cream);
-                flex-direction: column;
-                gap: 0;
-                padding: 1rem 0;
-                box-shadow: 0 10px 30px var(--shadow);
-            }
-
-            .nav-links.active {
-                display: flex;
-            }
-
-            .nav-links li {
-                padding: 1rem 4%;
-                border-bottom: 1px solid rgba(230, 126, 34, 0.1);
-            }
-
-            .mobile-menu {
-                display: flex;
-            }
-
-            .hero-content h1 {
-                font-size: 2rem;
-            }
-
-            .hero-content p {
-                font-size: 1.1rem;
-            }
-
-            .hero-tagline {
-                font-size: 1.2rem;
-            }
-
-            .cta-buttons {
-                flex-direction: column;
-            }
-
-            .btn {
-                width: 100%;
-            }
-
-            .section {
-                padding: 3rem 4%;
-            }
-
-            .stats {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 2rem;
-            }
-
-            .stat-item h2 {
-                font-size: 2.5rem;
-            }
-
-            .about-text {
-                font-size: 1rem;
-            }
-
-            .about-image {
-                height: 300px;
-            }
-
-            .mission-quote blockquote {
-                font-size: 1.3rem;
-            }
-
-            .focus-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .gallery-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .footer-content {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero-content h1 {
-                font-size: 1.8rem;
-            }
-
-            .section-title {
-                font-size: 1.8rem;
-            }
-
-            .stats {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>YOOO PAHAD FOUNDATION</title>
+
+  <style>
+    /* ---------- Base Reset ---------- */
+    * {margin:0; padding:0; box-sizing:border-box;}
+    body {
+      font-family: "Poppins", Arial, sans-serif;
+      color:#1a1a1a;
+      background:#f7f9fa;
+      scroll-behavior:smooth;
+    }
+    a {text-decoration:none; color:inherit;}
+    img {max-width:100%; display:block;}
+
+    /* ---------- Header / Hero ---------- */
+    header {
+      background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+                  url('images/hero-mountain.jpg') center/cover no-repeat;
+      color:#fff;
+      text-align:center;
+      padding:6rem 1rem 5rem;
+      position:relative;
+    }
+    header h1 {
+      font-size:2.8rem;
+      letter-spacing:2px;
+      font-weight:700;
+    }
+    header p {
+      font-size:1.25rem;
+      margin:1rem 0 2rem;
+    }
+    .donate-btn {
+      background:#00a389;
+      color:#fff;
+      padding:0.75rem 1.5rem;
+      border-radius:30px;
+      font-weight:600;
+      transition:background 0.3s;
+    }
+    .donate-btn:hover { background:#007d66; }
+
+    /* ---------- Navigation ---------- */
+    nav {
+      position:sticky; top:0;
+      background:#fff;
+      display:flex; justify-content:space-between; align-items:center;
+      padding:0.75rem 1.5rem;
+      box-shadow:0 2px 6px rgba(0,0,0,0.08);
+      z-index:1000;
+    }
+    nav .logo {font-weight:700; color:#007d66;}
+    nav ul {display:flex; gap:1.2rem; list-style:none;}
+    nav a:hover {color:#00a389;}
+
+    /* ---------- Sections ---------- */
+    section {
+      padding:4rem 1rem;
+      max-width:1100px;
+      margin:auto;
+      opacity:0; transform:translateY(40px);
+      transition:opacity 0.8s ease, transform 0.8s ease;
+    }
+    section.visible {opacity:1; transform:translateY(0);}
+    .section-title {
+      text-align:center;
+      font-size:2rem;
+      color:#007d66;
+      margin-bottom:1.5rem;
+    }
+    .section-subtitle {
+      text-align:center;
+      color:#555;
+      margin-bottom:2rem;
+    }
+
+    /* ---------- Gallery ---------- */
+    .gallery-grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(250px,1fr));
+      gap:1rem;
+    }
+    .gallery-item {
+      position:relative;
+      overflow:hidden;
+      border-radius:10px;
+      cursor:pointer;
+      background:#eee;
+    }
+    .gallery-item img {
+      width:100%;
+      height:250px;
+      object-fit:cover;
+      transition:transform 0.4s ease;
+    }
+    .gallery-item:hover img {transform:scale(1.05);}
+    .gallery-label {
+      position:absolute; bottom:0;
+      width:100%; text-align:center;
+      background:rgba(0,0,0,0.6);
+      color:#fff; font-size:0.9rem;
+      padding:0.4rem 0;
+    }
+
+    /* ---------- Lightbox ---------- */
+    #lightbox {
+      position:fixed; top:0; left:0; width:100%; height:100%;
+      background:rgba(0,0,0,0.85);
+      display:flex; justify-content:center; align-items:center;
+      visibility:hidden; opacity:0;
+      transition:opacity 0.3s ease;
+      z-index:2000;
+    }
+    #lightbox.visible {visibility:visible; opacity:1;}
+    #lightbox img {
+      max-width:90%; max-height:85%; border-radius:10px;
+      box-shadow:0 0 15px rgba(0,0,0,0.5);
+    }
+    #lightbox span {
+      position:absolute; top:20px; right:30px;
+      color:#fff; font-size:2rem; cursor:pointer;
+      font-weight:600;
+    }
+
+    /* ---------- Contact ---------- */
+    .contact {
+      text-align:center;
+      line-height:1.8;
+      font-size:1.1rem;
+    }
+
+    /* ---------- Footer ---------- */
+    footer {
+      background:#007d66; color:#fff;
+      text-align:center;
+      padding:2rem 1rem;
+    }
+    .socials {
+      margin-top:0.8rem;
+      display:flex; justify-content:center; gap:1.2rem;
+    }
+    .socials a {
+      color:#fff; font-size:1.4rem;
+      transition:color 0.3s;
+    }
+    .socials a:hover { color:#c2fff0; }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width:600px){
+      header h1 {font-size:2.1rem;}
+      header p {font-size:1rem;}
+      .gallery-item img {height:200px;}
+    }
+  </style>
+
+  <!-- Font Awesome for social icons -->
+  <script src="https://kit.fontawesome.com/a2c5a6dd3c.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
-    <!-- Navigation -->
-    <nav>
-        <div class="logo">YOOO PAHAD FOUNDATION</div>
-        <div class="mobile-menu" onclick="toggleMenu()">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-        <ul class="nav-links" id="navLinks">
-            <li><a href="#about">About</a></li>
-            <li><a href="#focus">Focus Areas</a></li>
-            <li><a href="#achievements">Achievements</a></li>
-            <li><a href="#gallery">Gallery</a></li>
-            <li><a href="#join">Join Us</a></li>
-        </ul>
-    </nav>
+  <!-- Hero Section -->
+  <header>
+    <h1>YOOO PAHAD FOUNDATION</h1>
+    <p>Empowering Hills, Enriching Lives</p>
+    <a href="#contact" class="donate-btn">Donate Now</a>
+  </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Empowering Hills, Hearts, and Humanity</h1>
-            <p>From the majestic mountains of Nainital, we rise together—transforming communities through compassion, preserving heritage through action, and spreading kindness through every heartbeat of the hills.</p>
-            <div class="hero-tagline">🏔️ Building Futures, One Smile at a Time 🏔️</div>
-            <div class="cta-buttons">
-                <a href="#join" class="btn btn-primary">Join Our Movement</a>
-                <a href="#donate" class="btn btn-secondary">Donate Now</a>
-                <a href="#volunteer" class="btn btn-secondary">Volunteer</a>
-            </div>
-        </div>
-    </section>
+  <!-- Navigation -->
+  <nav>
+    <div class="logo">YOOO PAHAD</div>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#mission">Mission</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
 
-    <!-- Stats Section -->
-    <section class="stats">
-        <div class="stat-item">
-            <h2>2025</h2>
-            <p>Founded with Passion</p>
-        </div>
-        <div class="stat-item">
-            <h2>11</h2>
-            <p>Focus Areas</p>
-        </div>
-        <div class="stat-item">
-            <h2>∞</h2>
-            <p>Lives Touched</p>
-        </div>
-        <div class="stat-item">
-            <h2>100%</h2>
-            <p>Love & Dedication</p>
-        </div>
-    </section>
+  <!-- About Section -->
+  <section id="about">
+    <h2 class="section-title">About Us</h2>
+    <p class="section-subtitle">Working together to uplift the spirit of the Himalayas.</p>
+    <p>YOOO PAHAD FOUNDATION is a community-driven organization rooted in the heart of the hills. We bring together volunteers, local youth, and partners to create meaningful impact through social, cultural, and environmental initiatives — from organizing blood donation drives and cultural festivals to promoting sustainable tourism and environmental awareness.</p>
+  </section>
 
-    <!-- About Section -->
-    <section class="section" id="about">
-        <h2 class="section-title">Our Story</h2>
-        <p class="section-subtitle">Born from dreams, powered by youth, driven by love</p>
-        
-        <div class="about-content">
-            <div class="about-text">
-                <p>Born from the dreams of Nainital's youth, <strong style="color: var(--primary-orange);">Yooo Pahad Foundation</strong> is a vibrant movement transforming hillside communities through compassion and collaboration.</p>
-                
-                <p>Officially registered on <strong style="color: var(--primary-orange);">September 9, 2025</strong>, our journey began with personal donations and heartfelt commitment. Today, we stand as a beacon of harmony and hope in the hills of Uttarakhand.</p>
-                
-                <p>We believe in blending <strong style="color: var(--forest-green);">fun with purpose</strong>, joy with impact. Every initiative we undertake is infused with the spirit of the mountains and the warmth of our people.</p>
-            </div>
-            
-            <div class="about-image">
-                🏔️<br>
-                <span style="font-size: 1.2rem; color: var(--text-gray);">Founders & Community</span>
-            </div>
-        </div>
-    </section>
+  <!-- Mission Section -->
+  <section id="mission">
+    <h2 class="section-title">Our Mission</h2>
+    <p class="section-subtitle">Sustainability • Culture • Compassion</p>
+    <p>Our mission is to connect communities, preserve traditions, and empower lives in the Himalayan regions. We believe that every small step toward awareness, unity, and care creates a larger movement of hope. Through education, environmental conservation, and cultural promotion, we aim to build a stronger, self-reliant mountain society.</p>
+  </section>
 
-    <!-- Mission Quote -->
-    <section class="mission-quote">
-        <blockquote>
-            Every act of kindness ripples through the mountains, connecting and healing us all. We believe true progress happens when we laugh together, learn together, and lift each other up—with joy at the center of every initiative.
-        </blockquote>
-        <cite>— Our Mission & Vision</cite>
-    </section>
+  <!-- Gallery Section -->
+  <section id="gallery">
+    <h2 class="section-title">Moments from Our Journey</h2>
+    <p class="section-subtitle">Snapshots of compassion, celebration, and community.</p>
 
-    <!-- Focus Areas Section -->
-    <section class="section" id="focus">
-        <h2 class="section-title">Our Focus Areas</h2>
-        <p class="section-subtitle">Comprehensive community empowerment across 11 vital sectors</p>
-        
-        <div class="focus-grid">
-            <div class="focus-card">
-                <span class="focus-icon">📚</span>
-                <h3>Education</h3>
-                <p>Empowering young minds with hilltop learning and access to quality education for every child in our communities.</p>
-            </div>
+    <div class="gallery-grid">
+      <div class="gallery-item"><img src="images/dahi_handi_2024.jpg" alt="Dahi Handi Celebration 2024" loading="lazy"><div class="gallery-label">Dahi Handi Celebration 2024</div></div>
+      <div class="gallery-item"><img src="images/fancy_dress_event.jpg" alt="Fancy Dress Competition" loading="lazy"><div class="gallery-label">Fancy Dress Competition</div></div>
+      <div class="gallery-item"><img src="images/cleanliness_drive.jpg" alt="Cleanliness Drive at Naini Lake" loading="lazy"><div class="gallery-label">Cleanliness Drive at Naini Lake</div></div>
+      <div class="gallery-item"><img src="images/awareness_campaign.jpg" alt="Health & Awareness Campaign" loading="lazy"><div class="gallery-label">Health & Awareness Campaign</div></div>
+      <div class="gallery-item"><img src="images/tree_plantation.jpg" alt="Tree Plantation Drive" loading="lazy"><div class="gallery-label">Tree Plantation Drive</div></div>
+      <div class="gallery-item"><img src="images/festival_support.jpg" alt="Supporting Local Festivals" loading="lazy"><div class="gallery-label">Supporting Local Festivals</div></div>
+    </div>
+  </section>
 
-            <div class="focus-card">
-                <span class="focus-icon">🌾</span>
-                <h3>Agriculture</h3>
-                <p>Eco-friendly farming revives lands and livelihoods, bringing sustainable prosperity back to our mountain villages.</p>
-            </div>
+  <!-- Contact Section -->
+  <section id="contact">
+    <h2 class="section-title">Contact Us</h2>
+    <p class="section-subtitle">We’d love to collaborate and grow together.</p>
+    <div class="contact">
+      <p>Email: <a href="mailto:info@yooopahad.org">info@yooopahad.org</a></p>
+      <p>Address: Nainital, Uttarakhand, India</p>
+      <p>Follow us on social media to stay connected.</p>
+    </div>
+  </section>
 
-            <div class="focus-card">
-                <span class="focus-icon">🌿</span>
-                <h3>Environment</h3>
-                <p>Preserving nature's gifts through awareness and action, protecting the pristine beauty of our Himalayan home.</p>
-            </div>
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 YOOO PAHAD FOUNDATION. All rights reserved.</p>
+    <div class="socials">
+      <a href="#"><i class="fab fa-facebook-f"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-youtube"></i></a>
+    </div>
+  </footer>
 
-            <div class="focus-card">
-                <span class="focus-icon">🏞️</span>
-                <h3>Tourism</h3>
-                <p>Community-powered tourism brings sustainable growth while honoring our heritage and natural wonders.</p>
-            </div>
+  <!-- Lightbox Element -->
+  <div id="lightbox"><span>&times;</span><img src="" alt="expanded"></div>
 
-            <div class="focus-card">
-                <span class="focus-icon">🎭</span>
-                <h3>Art & Culture</h3>
-                <p>Festivals and workshops celebrate our rich heritage, keeping traditions alive for future generations.</p>
-            </div>
+  <!-- ---------- Scripts ---------- -->
+  <script>
+    // Scroll fade-in
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if(e.isIntersecting){ e.target.classList.add('visible'); observer.unobserve(e.target);}
+      });
+    }, {threshold:0.2});
+    document.querySelectorAll('section').forEach(sec=>observer.observe(sec));
 
-            <div class="focus-card">
-                <span class="focus-icon">🎨</span>
-                <h3>Inclusive Child Development</h3>
-                <p>Special children and their peers shine together in joyful clinics, where every child belongs and thrives.</p>
-            </div>
-
-            <div class="focus-card">
-                <span class="focus-icon">🛡️</span>
-                <h3>Disaster Management</h3>
-                <p>Preparedness saves lives—neighbors become heroes through training and community resilience programs.</p>
-            </div>
-
-            <div class="focus-card">
-                <span class="focus-icon">👴</span>
-                <h3>Elderly Care</h3>
-                <p>Warmth and wisdom shared across generations, honoring our elders with dignity and compassion.</p>
-            </div>
-
-            <div class="focus-card">
-                <span class="focus-icon">⚕️</span>
-                <h3>Health & Welfare</h3>
-                <p>Free clinics and yoga retreats nurture hill families with holistic healthcare and wellness programs.</p>
-            </div>
-
-            <div class="focus-card">
-                <span class="focus-icon">✊</span>
-                <h3>Labour & Human Rights</h3>
-                <p>Advocacy ensures fair wages and empowerment for all workers, protecting dignity and justice.</p>
-            </div>
-
-            <div class="focus-card">
-                <span class="focus-icon">💼</span>
-                <h3>Youth & Employment</h3>
-                <p>Training and talent programs connect youth to green jobs, building careers rooted in sustainability.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Achievements Section -->
-    <section class="section" id="achievements">
-        <h2 class="section-title">Our Journey</h2>
-        <p class="section-subtitle">Milestones of love, dedication, and community impact</p>
-        
-        <div class="timeline">
-            <div class="timeline-item">
-                <h3>🩸 Blood Donation Drives</h3>
-                <p>Youth-led camps saving lives across our communities, bringing hope to those in need through the gift of life.</p>
-            </div>
-
-            <div class="timeline-item">
-                <h3>🎉 Janmashtami Mahotsav</h3>
-                <p>A festival of joy, devotion, and dance—bringing our community together in celebration of faith and culture.</p>
-            </div>
-
-            <div class="timeline-item">
-                <h3>🎭 Kumaoni Digital Ramleela</h3>
-                <p>Pioneering online tradition during challenging times, keeping our cultural flame burning bright in the digital age.</p>
-            </div>
-
-            <div class="timeline-item">
-                <h3>🏘️ Village Outreach Programs</h3>
-                <p>Cleanliness drives, compassion initiatives, and education programs reaching remote villages with care and commitment.</p>
-            </div>
-
-            <div class="timeline-item">
-                <h3>🌱 Sustainable Agriculture Workshops</h3>
-                <p>Empowering farmers with eco-friendly techniques, reviving traditional wisdom with modern sustainability.</p>
-            </div>
-
-            <div class="timeline-item">
-                <h3>🎪 Community Festivals & Cultural Events</h3>
-                <p>Year-round celebrations bringing laughter, art, music, and unity to every corner of our hills.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Gallery Section -->
-    <section class="section" id="gallery">
-        <h2 class="section-title">Experience Our Journey</h2>
-        <p class="section-subtitle">Festivals, community service, and creating lasting impact together</p>
-        
-        <div class="gallery-grid">
-            <!-- Blood Donation Images -->
-            <div class="gallery-item">
-                <div class="image-placeholder">🩸</div>
-                <div class="gallery-label">Blood Donation Drive - Community Hero</div>
-            </div>
-            <div class="gallery-item">
-                <div class="image-placeholder">🩸</div>
-                <div class="gallery-label">Blood Donation - Medical Team</div>
-            </div>
-            <div class="gallery-item">
-                <div class="image-placeholder">🩸</div>
-                <div class="gallery-label">Blood Donation - Young Volunteer</div>
-            </div>
-            <div class="gallery-item">
-                <div class="image-placeholder">🩸</div>
-                <div class="gallery-label">Blood Donation - Saving Lives</div>
-            </div>
-            
-            <!-- Janmashtami Mahotsav Images -->
-            <div class="gallery-item">
-                <div class="image-placeholder">🎉</div>
-                <div class="gallery-label">Janmashtami Mahotsav - Team Photo</div>
-            </div>
-            <div class="gallery-item">
-                <div class="image-placeholder">🎉</div>
-                <div class="gallery-label">Janmashtami Celebration</div>
-            </div>
-            <div class="gallery-item">
-                <div class="image-placeholder">🎉</div>
-                <div class="gallery-label">Community Gathering</div>
-            </div>
-            <div class="gallery-item">
-                <div class="image-placeholder">🎉</div>
-                <div class="gallery-label">Festival Preparations</div>
-            </div>
-            
-            <!-- Environment & Tourism -->
-            <div class="gallery-item">
-                <div class="image-placeholder">🌱</div>
-                <div class="gallery-label">Tree Plantation Drive</div>
-            </div>
-            <div class="gallery-item">
-                <div class="image-placeholder">🏔️</div>
-                <div class="gallery-label">Mountain Heritage Tourism</div>
-            </div>
-            
-            <!-- Elderly Care -->
-            <div class="gallery-item">
-                <div class="image-placeholder">👴</div>
-                <div class="gallery-label">Elderly Care Program</div>
-            </div>
-            <div class="gallery-item">
-                <div class="image-placeholder">👴</div>
-                <div class="gallery-label">Senior Citizens Outreach</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Join Section -->
-    <section class="join-section" id="join">
-        <div class="join-content">
-            <h2 class="section-title">Join the Movement</h2>
-            <p>Dil se Pahadi—storytellers, fundraisers, dreamers, and doers. Add your smile to our canvas of kindness and be part of something bigger than yourself.</p>
-            <p style="margin-top: 1.5rem; color: var(--text-gray);">Whether you want to volunteer, donate, or simply spread the word—every contribution matters. Together, we can create lasting change in the hills we call home.</p>
-            <div class="cta-buttons">
-                <a href="mailto:contact@yooopahad.org" class="btn btn-primary">Get in Touch</a>
-                <a href="#volunteer" class="btn btn-secondary">Become a Volunteer</a>
-            </div>
-        </div>
-    </section>
-
-    <div class="mountain-divider"></div>
-
-    <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>Yooo Pahad Foundation</h3>
-                <p>Empowering communities, preserving heritage, and spreading kindness in the hills of Nainital, Uttarakhand.</p>
-                <p style="margin-top: 1rem;"><strong>Founded:</strong> September 9, 2025</p>
-            </div>
-
-            <div class="footer-section">
-                <h3>Quick Links</h3>
-                <a href="#about">About Us</a>
-                <a href="#focus">Focus Areas</a>
-                <a href="#achievements">Our Achievements</a>
-                <a href="#gallery">Gallery</a>
-                <a href="#join">Join Us</a>
-            </div>
-
-            <div class="footer-section">
-                <h3>Contact Us</h3>
-                <p>📍 Nainital, Uttarakhand, India</p>
-                <p>📧 contact@yooopahad.org</p>
-                <p>📱 +91-XXXXX-XXXXX</p>
-                <div class="social-links">
-                    <a href="#" title="Facebook">📘</a>
-                    <a href="#" title="Instagram">📷</a>
-                    <a href="#" title="Twitter">🐦</a>
-                    <a href="#" title="YouTube">📺</a>
-                </div>
-            </div>
-
-            <div class="footer-section">
-                <h3>Get Involved</h3>
-                <a href="#donate">Donate Now</a>
-                <a href="#volunteer">Volunteer</a>
-                <a href="#partner">Partner With Us</a>
-                <a href="#events">Upcoming Events</a>
-            </div>
-        </div>
-
-        <div class="footer-bottom">
-            <p>&copy; 2025 Yooo Pahad Foundation. All rights reserved.</p>
-            <p class="footer-tagline">#PahadWithLove – Building Futures, One Smile at a Time</p>
-        </div>
-    </footer>
-
-    <script>
-        // Mobile menu toggle
-        function toggleMenu() {
-            const navLinks = document.getElementById('navLinks');
-            navLinks.classList.toggle('active');
-        }
-
-        // Close mobile menu when clicking on a link
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                document.getElementById('navLinks').classList.remove('active');
-            });
-        });
-
-        // Smooth scroll behavior
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    const offsetTop = target.offsetTop - 80;
-                    window.scrollTo({
-                        top: offsetTop,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-
-        // Add animation on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        // Observe elements for animation
-        document.querySelectorAll('.focus-card, .timeline-item, .gallery-item').forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(20px)';
-            el.style.transition = 'all 0.6s ease-out';
-            observer.observe(el);
-        });
-    </script>
+    // Lightbox
+    const lightbox = document.getElementById('lightbox');
+    const lbImg = lightbox.querySelector('img');
+    document.querySelectorAll('.gallery-item img').forEach(img=>{
+      img.addEventListener('click',()=>{
+        lbImg.src = img.src;
+        lightbox.classList.add('visible');
+      });
+    });
+    lightbox.addEventListener('click',e=>{
+      if(e.target!==lbImg){ lightbox.classList.remove('visible'); }
+    });
+  </script>
 </body>
 </html>
