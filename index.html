@@ -476,69 +476,92 @@
         }
 
         /* Gallery */
-        <section id="gallery" class="section">
-  <h2 class="section-title">Gallery</h2>
-  <div class="gallery-grid">
-    
-    <!-- 🩸 Blood Donation Drive -->
-    <div class="gallery-item">
-      <img src="images/blood-donation-1.jpg" alt="Volunteer assisting elderly woman">
-      <div class="gallery-label">Blood Donation Drive - Community Hero</div>
-    </div>
-    <div class="gallery-item">
-      <img src="images/blood-donation-2.jpg" alt="Medical staff assisting blood donor">
-      <div class="gallery-label">Blood Donation - Medical Team</div>
-    </div>
-    <div class="gallery-item">
-      <img src="images/blood-donation-3.jpg" alt="Smiling young donor">
-      <div class="gallery-label">Blood Donation - Young Volunteer</div>
-    </div>
-    <div class="gallery-item">
-      <img src="images/blood-donation-4.jpg" alt="Volunteer in striped shirt at donation camp">
-      <div class="gallery-label">Blood Donation - Saving Lives</div>
-    </div>
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            max-width: 1400px;
+            margin: 3rem auto 0;
+        }
 
-    <!-- 🪔 Janmashtami Mahotsav -->
-    <div class="gallery-item">
-      <img src="images/janmashtami-1.jpg" alt="Large group photo of Janmashtami volunteers">
-      <div class="gallery-label">Janmashtami Mahotsav - Team Photo</div>
-    </div>
-    <div class="gallery-item">
-      <img src="images/janmashtami-2.jpg" alt="Team members performing on stage">
-      <div class="gallery-label">Janmashtami Celebration</div>
-    </div>
-    <div class="gallery-item">
-      <img src="images/janmashtami-3.jpg" alt="Cultural program at community hall">
-      <div class="gallery-label">Community Gathering</div>
-    </div>
-    <div class="gallery-item">
-      <img src="images/janmashtami-4.jpg" alt="Decorated outdoor event area">
-      <div class="gallery-label">Festival Preparations</div>
-    </div>
+        .gallery-item {
+            height: 280px;
+            background: white;
+            border: 3px solid var(--cream);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            transition: all 0.3s;
+            cursor: pointer;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 4px 15px var(--shadow);
+        }
 
-    <!-- 🌿 Environment & Tourism -->
-    <div class="gallery-item">
-      <img src="images/plantation.jpg" alt="Volunteers planting trees">
-      <div class="gallery-label">Tree Plantation Drive</div>
-    </div>
-    <div class="gallery-item">
-      <img src="images/tourism-1.jpg" alt="Tourists exploring mountain valley">
-      <div class="gallery-label">Mountain Heritage Tourism</div>
-    </div>
+        .gallery-item::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(45deg, rgba(230, 126, 34, 0.2), transparent);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
 
-    <!-- 👵 Elderly Care -->
-    <div class="gallery-item">
-      <img src="images/elderly-care-1.jpg" alt="Group of elderly women">
-      <div class="gallery-label">Elderly Care Program</div>
-    </div>
-    <div class="gallery-item">
-      <img src="images/elderly-care-2.jpg" alt="Large gathering of elderly citizens">
-      <div class="gallery-label">Senior Citizens Outreach</div>
-    </div>
+        .gallery-item:hover {
+            border-color: var(--primary-orange);
+            transform: scale(1.03);
+            box-shadow: 0 10px 40px rgba(230, 126, 34, 0.3);
+        }
 
-  </div>
-</section>
+        .gallery-item:hover::after {
+            opacity: 1;
+        }
 
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .gallery-label {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+            padding: 1.5rem;
+            color: white;
+            font-size: 1.1rem;
+            text-align: center;
+            font-weight: 600;
+            transform: translateY(100%);
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover .gallery-label {
+            transform: translateY(0);
+        }
+
+        /* Join Section */
+        .join-section {
+            background: linear-gradient(135deg, rgba(230, 126, 34, 0.05), rgba(243, 156, 18, 0.05));
+            text-align: center;
+            padding: 6rem 5%;
+        }
+
+        .join-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .join-content p {
+            font-size: 1.3rem;
+            color: var(--text-dark);
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
 
         /* Footer */
         footer {
