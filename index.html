@@ -238,6 +238,10 @@
             font-weight: 700;
         }
 
+        .section-title.green-title {
+            color: var(--forest-green);
+        }
+
         .section-subtitle {
             text-align: center;
             color: var(--text-gray);
@@ -292,40 +296,13 @@
             margin-bottom: 1.5rem;
         }
 
-        .about-image {
-            width: 100%;
-            height: 450px;
-            background: linear-gradient(135deg, var(--cream), var(--warm-white));
-            border: 3px solid var(--primary-orange);
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 4rem;
-            box-shadow: 0 10px 40px var(--shadow);
-            transition: all 0.3s;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .about-image:hover {
-            transform: scale(1.02);
-            box-shadow: 0 15px 50px rgba(230, 126, 34, 0.2);
-        }
-
-        .about-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        /* Founding Members Grid */
+        /* Members Grid */
         .members-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
             max-width: 1400px;
-            margin: 4rem auto 0;
+            margin: 3rem auto 0;
         }
 
         .member-card {
@@ -805,10 +782,6 @@
                 font-size: 1rem;
             }
 
-            .about-image {
-                height: 300px;
-            }
-
             .mission-quote blockquote {
                 font-size: 1.3rem;
             }
@@ -918,10 +891,58 @@
         </div>
     </section>
 
-    <!-- Founding Members Section -->
+    <!-- OUR TEAM Section -->
+    <section class="section" id="team">
+        <h2 class="section-title green-title">Our Team</h2>
+        <p class="section-subtitle">Meet the passionate individuals driving change in the mountains</p>
+        
+        <div class="members-grid">
+            <div class="member-card">
+                <img src="./images/team-dr-santokh-singh-bisht.jpg" alt="Dr. Santokh Singh Bisht">
+                <div class="member-info">
+                    <div class="member-name">Dr. Santokh Singh Bisht</div>
+                    <div class="member-role">Founder</div>
+                </div>
+            </div>
+
+            <div class="member-card">
+                <img src="./images/team-sagar-sonker.jpg" alt="Sagar Sonker">
+                <div class="member-info">
+                    <div class="member-name">Sagar Sonker</div>
+                    <div class="member-role">Secretary</div>
+                </div>
+            </div>
+
+            <div class="member-card">
+                <img src="./images/team-deepak-puls.jpg" alt="Deepak Puls">
+                <div class="member-info">
+                    <div class="member-name">Deepak Puls</div>
+                    <div class="member-role">Vice President</div>
+                </div>
+            </div>
+
+            <div class="member-card">
+                <img src="./images/team-deepa-bisht.jpg" alt="Deepa Bisht">
+                <div class="member-info">
+                    <div class="member-name">Deepa Bisht</div>
+                    <div class="member-role">Female Vice President</div>
+                </div>
+            </div>
+
+            <div class="member-card">
+                <img src="./images/team-neeraj-bisht.jpg" alt="Neeraj Bisht">
+                <div class="member-info">
+                    <div class="member-name">Neeraj Bisht</div>
+                    <div class="member-role">Headmaster</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOUNDING MEMBERS Section -->
     <section class="section" id="founders">
-        <h2 class="section-title" style="color: var(--forest-green);">Founding Members</h2>
-        <p class="section-subtitle">Meet the passionate individuals who dreamed and dared to transform our hills</p>
+        <h2 class="section-title green-title">Founding Members</h2>
+        <p class="section-subtitle">The dreamers and doers who laid the foundation</p>
         
         <div class="members-grid">
             <div class="member-card">
@@ -993,6 +1014,94 @@
                 <div class="member-info">
                     <div class="member-name">Chetan Mehra</div>
                     <div class="member-role">Technical Support Specialist (Founding Member)</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- KEY ROLES Section -->
+    <section class="section" id="key-roles">
+        <h2 class="section-title green-title">Key Roles</h2>
+        <p class="section-subtitle">Leadership and specialized expertise</p>
+        
+        <div class="members-grid">
+            <div class="member-card">
+                <img src="./images/key-role-deepak-thapa.jpg" alt="Deepak Thapa">
+                <div class="member-info">
+                    <div class="member-name">Deepak Thapa</div>
+                    <div class="member-role">Head of Photography / Videography</div>
+                </div>
+            </div>
+
+            <div class="member-card">
+                <img src="./images/key-role-deepak-bisht.jpg" alt="Deepak Bisht">
+                <div class="member-info">
+                    <div class="member-name">Deepak Bisht</div>
+                    <div class="member-role">Fund Manager (CEO)</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ACTIVE MEMBERS Section -->
+    <section class="section" id="active-members">
+        <h2 class="section-title green-title">Active Members</h2>
+        <p class="section-subtitle">Dedicated team members contributing to our mission</p>
+        
+        <div class="members-grid">
+            <div class="member-card">
+                <img src="./images/active-himanshu-bisht.jpg" alt="Himanshu Bisht">
+                <div class="member-info">
+                    <div class="member-name">Himanshu Bisht</div>
+                    <div class="member-role">Active Member</div>
+                </div>
+            </div>
+
+            <div class="member-card">
+                <img src="./images/active-amit-vidhyarthi.jpg" alt="Amit Vidhyarthi">
+                <div class="member-info">
+                    <div class="member-name">Amit Vidhyarthi</div>
+                    <div class="member-role">Active Member</div>
+                </div>
+            </div>
+
+            <div class="member-card">
+                <img src="./images/active-chandar-kant-joshi.jpg" alt="Chandar Kant Joshi">
+                <div class="member-info">
+                    <div class="member-name">Chandar Kant Joshi</div>
+                    <div class="member-role">Core Manager</div>
+                </div>
+            </div>
+
+            <div class="member-card">
+                <img src="./images/active-manoj-kumar.jpg" alt="Manoj Kumar">
+                <div class="member-info">
+                    <div class="member-name">Manoj Kumar</div>
+                    <div class="member-role">Active Member</div>
+                </div>
+            </div>
+
+            <div class="member-card">
+                <img src="./images/active-aarav.jpg" alt="Aarav">
+                <div class="member-info">
+                    <div class="member-name">Aarav</div>
+                    <div class="member-role">Active Member</div>
+                </div>
+            </div>
+
+            <div class="member-card">
+                <img src="./images/active-vipul-bisht.jpg" alt="Vipul Bisht">
+                <div class="member-info">
+                    <div class="member-name">Vipul Bisht (Bobby)</div>
+                    <div class="member-role">Active Manager</div>
+                </div>
+            </div>
+
+            <div class="member-card">
+                <img src="./images/active-pankaj-gadhiya.jpg" alt="Pankaj Gadhiya">
+                <div class="member-info">
+                    <div class="member-name">Pankaj Gadhiya</div>
+                    <div class="member-role">Active Member</div>
                 </div>
             </div>
         </div>
