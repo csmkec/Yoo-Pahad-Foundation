@@ -840,6 +840,219 @@
             background-size: 600px 100px;
         }
 
+        /* ==================== AI CHATBOT STYLES ==================== */
+        .chatbot-widget {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 999;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .chatbot-toggle {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--teal), var(--electric-teal));
+            border: none;
+            color: var(--navy-dark);
+            font-size: 1.8rem;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(0, 217, 255, 0.4);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .chatbot-toggle:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 30px rgba(0, 217, 255, 0.6);
+        }
+
+        .chatbot-toggle.active {
+            transform: rotate(45deg);
+        }
+
+        .chatbot-container {
+            position: absolute;
+            bottom: 80px;
+            right: 0;
+            width: 380px;
+            height: 600px;
+            background: var(--white);
+            border-radius: 16px;
+            box-shadow: 0 10px 50px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+            opacity: 0;
+            transform: translateY(20px) scale(0.9);
+            pointer-events: none;
+            transition: all 0.3s ease;
+        }
+
+        .chatbot-container.active {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+            pointer-events: all;
+        }
+
+        .chatbot-header {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-dark) 100%);
+            color: var(--white);
+            padding: 1.5rem;
+            border-radius: 16px 16px 0 0;
+            border-bottom: 2px solid var(--teal);
+        }
+
+        .chatbot-header h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.25rem;
+            font-weight: 700;
+        }
+
+        .chatbot-header p {
+            font-size: 0.85rem;
+            color: #B0C4DE;
+            font-weight: 400;
+        }
+
+        .chatbot-messages {
+            flex: 1;
+            overflow-y: auto;
+            padding: 1.5rem;
+            background: var(--off-white);
+        }
+
+        .chatbot-messages::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .chatbot-messages::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .chatbot-messages::-webkit-scrollbar-thumb {
+            background: var(--teal);
+            border-radius: 3px;
+        }
+
+        .message {
+            margin-bottom: 1rem;
+            display: flex;
+            animation: slideIn 0.3s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .message.user {
+            justify-content: flex-end;
+        }
+
+        .message.bot {
+            justify-content: flex-start;
+        }
+
+        .message-text {
+            max-width: 70%;
+            padding: 0.8rem 1rem;
+            border-radius: 12px;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .message.user .message-text {
+            background: var(--teal);
+            color: var(--navy-dark);
+            font-weight: 500;
+        }
+
+        .message.bot .message-text {
+            background: white;
+            color: var(--text-dark);
+            border: 1px solid #E5E7EB;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .chatbot-input-area {
+            display: flex;
+            gap: 0.8rem;
+            padding: 1.2rem;
+            background: var(--white);
+            border-top: 1px solid #E5E7EB;
+            border-radius: 0 0 16px 16px;
+        }
+
+        .chatbot-input {
+            flex: 1;
+            border: 1px solid #E5E7EB;
+            border-radius: 8px;
+            padding: 0.8rem 1rem;
+            font-size: 0.95rem;
+            font-family: 'Inter', sans-serif;
+            transition: all 0.2s;
+        }
+
+        .chatbot-input:focus {
+            outline: none;
+            border-color: var(--teal);
+            box-shadow: 0 0 0 3px rgba(0, 217, 255, 0.1);
+        }
+
+        .chatbot-send-btn {
+            width: 40px;
+            height: 40px;
+            border: none;
+            background: linear-gradient(135deg, var(--teal), var(--electric-teal));
+            color: var(--navy-dark);
+            border-radius: 8px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: all 0.2s;
+            font-weight: 600;
+        }
+
+        .chatbot-send-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 12px rgba(0, 217, 255, 0.3);
+        }
+
+        .chatbot-send-btn:active {
+            transform: scale(0.95);
+        }
+
+        /* Responsive */
+        @media (max-width: 480px) {
+            .chatbot-container {
+                width: 320px;
+                height: 500px;
+            }
+
+            .message-text {
+                max-width: 85%;
+            }
+
+            .chatbot-toggle {
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+            }
+        }
+
+        /* ==================== END CHATBOT STYLES ==================== */
+
         /* Responsive Design */
         @media (max-width: 968px) {
             .hero-content h1 {
@@ -970,6 +1183,16 @@
                 padding: 4rem 4%;
                 margin: 3rem 4% 0;
             }
+
+            .chatbot-widget {
+                bottom: 1rem;
+                right: 1rem;
+            }
+
+            .chatbot-container {
+                width: 300px;
+                height: 450px;
+            }
         }
 
         @media (max-width: 480px) {
@@ -999,7 +1222,7 @@
 <body>
     <!-- Navigation -->
     <nav>
-        <div class="logo">YOOO PAHAD FOUNDATION</div>
+        <div class="logo">YOOO PAHAD</div>
         <div class="mobile-menu" onclick="toggleMenu()">
             <span></span>
             <span></span>
@@ -1106,7 +1329,7 @@
                 <img src="./images/team-neeraj-bisht.jpg" alt="Neeraj Bisht">
                 <div class="member-info">
                     <div class="member-name">Neeraj Bisht</div>
-                    <div class="member-role">Treasurer</div>
+                    <div class="member-role">Headmaster</div>
                 </div>
             </div>
         </div>
@@ -1242,7 +1465,7 @@
                 <img src="./images/active-chandar-kant-joshi.jpg" alt="Chandar Kant Joshi">
                 <div class="member-info">
                     <div class="member-name">Chandar Kant Joshi</div>
-                    <div class="member-role">Active Member</div>
+                    <div class="member-role">Core Manager</div>
                 </div>
             </div>
 
@@ -1525,6 +1748,39 @@
         </div>
     </footer>
 
+    <!-- ==================== AI CHATBOT WIDGET ==================== -->
+    <div class="chatbot-widget">
+        <button class="chatbot-toggle" onclick="toggleChatbot()" title="Open AI Chat">💬</button>
+        
+        <div class="chatbot-container" id="chatbotContainer">
+            <div class="chatbot-header">
+                <h3>Yooo Pahad AI</h3>
+                <p>How can we help you today?</p>
+            </div>
+            
+            <div class="chatbot-messages" id="chatbotMessages">
+                <div class="message bot">
+                    <div class="message-text">
+                        Hello! 👋 Welcome to Yooo Pahad Foundation, My name is Pahadi Bhula. I'm here to help answer your questions about our programs, team, and mission. How can I assist you?
+                    </div>
+                </div>
+            </div>
+            
+            <div class="chatbot-input-area">
+                <input 
+                    type="text" 
+                    class="chatbot-input" 
+                    id="chatbotInput" 
+                    placeholder="Type your message..."
+                    onkeypress="handleKeyPress(event)"
+                >
+                <button class="chatbot-send-btn" onclick="sendChatbotMessage()">➤</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== END CHATBOT WIDGET ==================== -->
+
     <script>
         // Mobile menu toggle
         function toggleMenu() {
@@ -1576,6 +1832,85 @@
             el.style.transition = 'all 0.6s ease-out';
             observer.observe(el);
         });
+
+        // ==================== CHATBOT FUNCTIONALITY ==================== 
+
+        const sampleResponses = {
+            greeting: "Hello! Welcome to Yooo Pahad Foundation. How can I help you today?",
+            about: "Yooo Pahad Foundation is a vibrant movement transforming hillside communities through compassion and collaboration. We focus on 11 key areas including education, environment, health, and culture.",
+            team: "Our team consists of dedicated founders and volunteers from Nainital who are passionate about community development and social impact.",
+            volunteer: "We'd love to have you join us! Please reach out to contact@yooopahad.org or visit our 'Get Involved' section to learn more about volunteering opportunities.",
+            donate: "Your donations help us create lasting impact in mountain communities. You can support us through various channels. Visit our website for more details.",
+            focus: "We work across 11 focus areas: Education, Agriculture, Environment, Tourism, Art & Culture, Inclusive Child Development, Disaster Management, Elderly Care, Health & Welfare, Labour Rights, and Youth Employment.",
+            location: "We are based in Nainital, Uttarakhand, India - the beautiful heart of the Himalayas.",
+            contact: "You can reach us at contact@yooopahad.org or connect via our social media channels.",
+            default: "That's an interesting question! Could you provide more details? Feel free to ask about our programs, team, or how to get involved."
+        };
+
+        function toggleChatbot() {
+            const container = document.getElementById('chatbotContainer');
+            const toggle = document.querySelector('.chatbot-toggle');
+            container.classList.toggle('active');
+            toggle.classList.toggle('active');
+        }
+
+        function sendChatbotMessage() {
+            const input = document.getElementById('chatbotInput');
+            const message = input.value.trim();
+            
+            if (!message) return;
+            
+            // Add user message
+            addMessage(message, 'user');
+            input.value = '';
+            
+            // Simulate bot response delay
+            setTimeout(() => {
+                const response = generateBotResponse(message);
+                addMessage(response, 'bot');
+            }, 500);
+        }
+
+        function addMessage(text, sender) {
+            const messagesContainer = document.getElementById('chatbotMessages');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${sender}`;
+            messageDiv.innerHTML = `<div class="message-text">${text}</div>`;
+            messagesContainer.appendChild(messageDiv);
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        }
+
+        function generateBotResponse(userMessage) {
+            const message = userMessage.toLowerCase();
+            
+            if (message.includes('hello') || message.includes('hi') || message.includes('hey')) {
+                return sampleResponses.greeting;
+            } else if (message.includes('about') || message.includes('who are you')) {
+                return sampleResponses.about;
+            } else if (message.includes('team') || message.includes('founder')) {
+                return sampleResponses.team;
+            } else if (message.includes('volunteer') || message.includes('join')) {
+                return sampleResponses.volunteer;
+            } else if (message.includes('donate') || message.includes('donation') || message.includes('support')) {
+                return sampleResponses.donate;
+            } else if (message.includes('focus') || message.includes('program') || message.includes('area')) {
+                return sampleResponses.focus;
+            } else if (message.includes('location') || message.includes('where') || message.includes('nainital')) {
+                return sampleResponses.location;
+            } else if (message.includes('contact') || message.includes('email') || message.includes('phone')) {
+                return sampleResponses.contact;
+            } else {
+                return sampleResponses.default;
+            }
+        }
+
+        function handleKeyPress(event) {
+            if (event.key === 'Enter') {
+                sendChatbotMessage();
+            }
+        }
+
+        // ==================== END CHATBOT FUNCTIONALITY ====================
     </script>
 </body>
 </html>
